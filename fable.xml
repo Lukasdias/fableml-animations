@@ -1,90 +1,140 @@
 <fable>
-	<config font-family="Roboto" />
-	<property name="pontuacao" default="0" />
-	<property name="dinheiro" default="50" />
-	<property name="vida" default="100" />
-	<property name="items_coletados" default="0" />
-	<property name="mensagem" default="Arraste itens para o inventário!" />
-	<page id="aventura" bg_color="#4a5568" bg_music="osts-retro-forest.mp3">
-		<!-- Interface do jogo -->
-		<agent id="titulo" x="300" y="30" 
-           text="🏪 Loja de Aventureiros" 
-           color="#ffffff" font-size="24" />
-		<agent id="dinheiro-display" x="50" y="80" 
-           text="💰 Dinheiro: $dinheiro | 💎 Pontos: $pontuacao" 
-           color="#ffff00" font-size="16" />
-		<agent id="vida-display" x="50" y="110" 
-           text="❤️ Vida: $vida | 📦 Itens: $items_coletados" 
-           color="#ff6b6b" font-size="16" />
-		<agent id="mensagem-display" x="50" y="140" 
-           text="$mensagem" 
-           color="#ffffff" font-size="14" />
-		<!-- Itens disponíveis para compra/coleta -->
-		<agent id="sword_magica" x="100" y="200" image="tech-acid-1.png" 
-           width="50" height="50" draggable="true" 
-           on_drag="set(mensagem, 'Arrastando Espada Mágica!')" />
-		<agent id="sword-label" x="100" y="260" text="Espada Mágica" 
-           color="#ffffff" font-size="12" />
-		<agent id="shield_dourado" x="200" y="200" image="tech-saw.png" 
-           width="50" height="50" draggable="true"
-           on_drag="set(mensagem, 'Arrastando Escudo Dourado!')" />
-		<agent id="shield-label" x="200" y="260" text="Escudo Dourado" 
-           color="#ffffff" font-size="12" />
-		<agent id="pocao_vida" x="300" y="200" image="forest-mushroom.png" 
-           width="50" height="50" draggable="true"
-           on_drag="set(mensagem, 'Arrastando Poção de Vida!')" />
-		<agent id="potion-label" x="300" y="260" text="Poção de Vida" 
-           color="#ffffff" font-size="12" />
-		<agent id="gema_poder" x="400" y="200" image="cemetery-arrowsign.png" 
-           width="50" height="50" draggable="true"
-           on_drag="set(mensagem, 'Arrastando Gema do Poder!')" />
-		<agent id="gem-label" x="400" y="260" text="Gema do Poder" 
-           color="#ffffff" font-size="12" />
-		<!-- Inventário Principal - Sistema de Drop Values -->
-		<agent id="inventario_geral" x="450" y="350" width="250" height="120"
-           text="📦 INVENTÁRIO GERAL
-(Arraste itens aqui)" 
+  <config font-family="Roboto" />
+  
+  <!-- Propriedades do sistema de combate -->
+  <property name="dano" default="10" />
+  <property name="defesa" default="8" />
+  <property name="vida" default="50" />
+  <property name="mana" default="30" />
+  <property name="pontuacao" default="0" />
+  <property name="mensagem" default="Arraste itens para suas respectivas zonas!" />
+
+  <page id="arena_setif" bg_color="#1a365d" bg_music="osts-retro-forest.mp3">
+    <!-- Interface do jogo -->
+    <agent id="titulo" x="350" y="30" 
+           text="⚔️ Arena de Combate - Função SetIf Demo" 
+           color="#ffffff" font-size="20" animation="fade-in" />
+    
+    <!-- Status do jogador -->
+    <agent id="status_combate" x="50" y="80" 
+           text="⚔️ Dano: $dano | 🛡️ Defesa: $defesa | ❤️ Vida: $vida | 🔮 Mana: $mana" 
+           color="#87ceeb" font-size="14" />
+    
+    <agent id="status_pontos" x="50" y="110" 
+           text="💎 Pontuação: $pontuacao | 📝 $mensagem" 
+           color="#ffd700" font-size="12" />
+    
+    <!-- Itens disponíveis -->
+    <agent id="espada_fogo" x="120" y="180" image="tech-acid-1.png" 
+           width="60" height="60" draggable="true" 
+           animation="glow"
+           on_drag="set(mensagem, 'Arrastando Espada de Fogo... (+15 dano)')" />
+    
+    <agent id="label_espada" x="120" y="250" text="Espada de Fogo" 
+           color="#ff6b6b" font-size="11" />
+    
+    <agent id="escudo_divino" x="220" y="180" image="tech-saw.png" 
+           width="60" height="60" draggable="true"
+           animation="float"
+           on_drag="set(mensagem, 'Arrastando Escudo Divino... (+20 defesa)')" />
+    
+    <agent id="label_escudo" x="220" y="250" text="Escudo Divino" 
+           color="#4fd1c7" font-size="11" />
+    
+    <agent id="pocao_cura" x="320" y="180" image="forest-mushroom.png" 
+           width="60" height="60" draggable="true"
+           animation="pulse"
+           on_drag="set(mensagem, 'Arrastando Poção de Cura... (+25 vida)')" />
+    
+    <agent id="label_pocao" x="320" y="250" text="Poção de Cura" 
+           color="#90ee90" font-size="11" />
+    
+    <agent id="cristal_mana" x="420" y="180" image="desert-gem.png" 
+           width="60" height="60" draggable="true"
+           animation="wiggle"
+           on_drag="set(mensagem, 'Arrastando Cristal de Mana... (+15 mana)')" />
+    
+    <agent id="label_cristal" x="420" y="250" text="Cristal de Mana" 
+           color="#dda0dd" font-size="11" />
+    
+    <agent id="veneno_mortal" x="520" y="180" image="cemetery-skeleton.png" 
+           width="60" height="60" draggable="true"
+           animation="glitch"
+           on_drag="set(mensagem, 'Arrastando Veneno Mortal... (-10 vida!)')" />
+    
+    <agent id="label_veneno" x="520" y="250" text="Veneno Mortal" 
+           color="#800080" font-size="11" />
+    
+    <!-- Zona 1: Arsenal de Guerra - Só aceita armas -->
+    <agent id="arsenal_guerra" x="120" y="320" width="180" height="100"
+           text="⚔️ ARSENAL\nDE GUERRA" 
            color="#ffffff" font-size="16"
-           drop_accept="sword_magica,shield_dourado,pocao_vida,gema_poder"
-           drop_values="15,25,10,50"
-           on_drop="set(pontuacao, $pontuacao + $drop_value); set(items_coletados, $items_coletados + 1); set(mensagem, 'Coletou $dropped_item! (+$drop_value pontos)')" />
-		<!-- Loja - Compra com dinheiro -->
-		<agent id="loja" x="120" y="350" width="150" height="80"
-           text="🏪 LOJA
-(Ganha dinheiro)" 
-           color="#ffd700" font-size="14"
-           drop_accept="sword_magica,shield_dourado,pocao_vida,gema_poder"
-           drop_values="10,20,5,40"
-           on_drop="set(dinheiro, $dinheiro + $drop_value); set(mensagem, 'Vendeu $dropped_item por $drop_value moedas!')" />
-		<!-- Hospital - Cura vida -->
-		<agent id="hospital" x="300" y="350" width="120" height="80"
-           text="🏥 HOSPITAL
-(Usa itens)" 
-           color="#ff6b6b" font-size="14"
-           drop_accept="pocao_vida,gema_poder"
-           drop_values="30,20"
-           on_drop="set(vida, $vida + $drop_value > 100 ? 100 : $vida + $drop_value); set(mensagem, 'Usou $dropped_item! +$drop_value vida')" />
-		<!-- Sistema de status baseado em conquistas -->
-		<fab-if when="$pontuacao >= 100">
-			<agent id="status_mestre" x="300" y="480" 
-             text="🏆 STATUS: MESTRE AVENTUREIRO!" 
-             color="#ffd700" font-size="18"  />
-		</fab-if>
-		<fab-if when="$pontuacao < 100 and $pontuacao >= 50">
-			<agent id="status_experiente" x="300" y="480" 
-             text="⭐ STATUS: AVENTUREIRO EXPERIENTE" 
-             color="#87ceeb" font-size="16"  />
-		</fab-if>
-		<fab-if when="$items_coletados >= 10">
-			<agent id="colecionador" x="50" y="480" 
-             text="📦 COLECIONADOR: +10 itens!" 
-             color="#90ee90" font-size="14"  />
-		</fab-if>
-		<!-- Botão de reset -->
-		<agent id="reset-loja" x="50" y="520" text="🔄 Resetar Loja" color="#ffffff"  on_click="set(pontuacao, 0); set(dinheiro, 50); set(vida, 100); set(items_coletados, 0); set(mensagem, 'Loja resetada!')" />
-		<!-- Instruções -->
-		<agent id="instrucoes" x="450" y="500" 
-           text="💡 Cada área dá valores diferentes para os mesmos itens!" 
+           drop_accept="espada_fogo,escudo_divino,pocao_cura,cristal_mana,veneno_mortal"
+           drop_values="15,20,0,0,-5"
+           on_drop="setIf($dropped_item = 'espada_fogo', dano, $dano + $drop_value); 
+                    setIf($dropped_item = 'escudo_divino', defesa, $defesa + $drop_value); 
+                    setIf($dropped_item = 'veneno_mortal', vida, $vida + $drop_value);
+                    setIf($drop_value > 0, pontuacao, $pontuacao + $drop_value);
+                    set(mensagem, 'Arsenal: ' + $dropped_item + ' (' + $drop_value + ' efeito)')" />
+    
+    <!-- Zona 2: Santuário de Cura - Especializado em cura -->
+    <agent id="santuario_cura" x="320" y="320" width="180" height="100"
+           text="🏥 SANTUÁRIO\nDE CURA" 
+           color="#ffffff" font-size="16"
+           drop_accept="espada_fogo,escudo_divino,pocao_cura,cristal_mana,veneno_mortal"
+           drop_values="5,10,25,8,-10"
+           on_drop="setIf($dropped_item = 'pocao_cura', vida, $vida + $drop_value);
+                    setIf($dropped_item = 'cristal_mana', mana, $mana + $drop_value);
+                    setIf($dropped_item = 'espada_fogo', pontuacao, $pontuacao + $drop_value);
+                    setIf($dropped_item = 'escudo_divino', pontuacao, $pontuacao + $drop_value);
+                    setIf($dropped_item = 'veneno_mortal', vida, $vida + $drop_value);
+                    set(mensagem, 'Santuário: ' + $dropped_item + ' processado!')" />
+    
+    <!-- Zona 3: Caldeirão Alquímico - Transforma tudo em pontos -->
+    <agent id="caldeirao_alquimico" x="520" y="320" width="180" height="100"
+           text="🧪 CALDEIRÃO\nALQUÍMICO" 
+           color="#ffffff" font-size="16"
+           drop_accept="espada_fogo,escudo_divino,pocao_cura,cristal_mana,veneno_mortal"
+           drop_values="10,12,15,8,3"
+           on_drop="setIf($drop_value > 10, pontuacao, $pontuacao + $drop_value * 2);
+                    setIf($drop_value = 10, pontuacao, $pontuacao + $drop_value);
+                    setIf($drop_value < 10, pontuacao, $pontuacao + $drop_value);
+                    setIf($dropped_item = 'veneno_mortal', mensagem, 'Alquimia: Veneno transformado em bônus!');
+                    setIf($dropped_item != 'veneno_mortal', mensagem, 'Alquimia: ' + $dropped_item + ' → ' + $drop_value + ' pontos!')" />
+    
+    <!-- Sistema de conquistas -->
+    <fab-if when="$dano >= 25">
+      <agent id="conquista_guerreiro" x="100" y="450" 
+             text="🏆 GUERREIRO LENDÁRIO!" 
+             color="#ff6b6b" font-size="16" animation="bounce-in pulse" />
+    </fab-if>
+    
+    <fab-if when="$defesa >= 25">
+      <agent id="conquista_defensor" x="300" y="450" 
+             text="🛡️ DEFENSOR IMORTAL!" 
+             color="#4fd1c7" font-size="16" animation="glow float" />
+    </fab-if>
+    
+    <fab-if when="$vida >= 70">
+      <agent id="conquista_curandeiro" x="500" y="450" 
+             text="❤️ CURANDEIRO MESTRE!" 
+             color="#90ee90" font-size="16" animation="heartbeat" />
+    </fab-if>
+    
+    <fab-if when="$pontuacao >= 50">
+      <agent id="conquista_alquimista" x="350" y="480" 
+             text="🧪 ALQUIMISTA SUPREMO!" 
+             color="#dda0dd" font-size="18" animation="morphing" />
+    </fab-if>
+    
+    <!-- Demonstração das condições setIf -->
+    <agent id="info_setif" x="350" y="520" 
+           text="💡 SetIf executa condicionalmente: setIf(condição, variável, valor)" 
            color="#cccccc" font-size="12" />
-	</page>
-</fable>
+    
+    <!-- Botão de reset -->
+    <agent id="reset_arena" x="350" y="550" text="🔄 Resetar Arena" 
+           color="#ffffff" animation="hover-grow"
+           on_click="set(dano, 10); set(defesa, 8); set(vida, 50); set(mana, 30); set(pontuacao, 0); set(mensagem, 'Arena resetada! Pronto para nova batalha!')" />
+  </page>
+</fable> 
