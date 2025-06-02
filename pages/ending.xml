@@ -8,6 +8,10 @@
     font-size="70"
   />
 
+  <fab-if when="$abriu_porta">
+    <agent id="text" text="text" color="white" />
+  </fab-if>
+
   <agent
     id="next_page_text"
     text="Primeira Pagina"
