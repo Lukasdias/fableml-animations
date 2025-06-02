@@ -12,7 +12,7 @@
     <agent id="text" text="text" color="white" />
   </fab-if>
 
-  <agent id="button" x="center" font-size="30" color="white" />
+  <agent id="button" x="center" y="10" font-size="30" color="white" />
 
   <agent
     id="next_page_text"
