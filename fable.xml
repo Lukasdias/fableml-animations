@@ -37,7 +37,6 @@
     
     <agent id="shield_dourado" x="200" y="200" image="tech-saw.png" 
            width="50" height="50" draggable="true"
-           animation="float"
            on_drag="set(mensagem, 'Arrastando Escudo Dourado!')" />
     
     <agent id="shield-label" x="200" y="260" text="Escudo Dourado" 
