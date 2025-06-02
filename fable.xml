@@ -1,101 +1,72 @@
 <fable>
   <!-- Configurações globais -->
-  <config font-family="Montserrat" />
+  <config font-family="Roboto" />
   
-  <!-- Variáveis do sistema de escolhas -->
-  <property name="escolha_feita" default="false" />
-  <property name="caminho" default="" />
-  <property name="vida" default="100" />
-  <property name="coragem" default="50" />
-  <property name="capitulo" default="1" />
+  <!-- Variáveis do inventário -->
+  <property name="inventario" default="[]" />
+  <property name="dinheiro" default="50" />
+  <property name="mensagem" default="Arraste itens para o inventário!" />
 
-  <page id="escolha" bg_color="#2c1810" bg_music="osts-fear.mp3">
+  <page id="aventura" bg_color="#4a5568" bg_music="osts-retro-forest.mp3">
     <!-- Interface do jogo -->
     <agent id="titulo" x="300" y="30" 
-           text="🌙 A Floresta Sombria - Capítulo $capitulo" 
-           color="#ffffff" font-size="20" />
+           text="🏪 Loja de Aventureiros" 
+           color="#ffffff" font-size="24" />
     
-    <!-- Status do jogador -->
-    <agent id="status" x="50" y="60" 
-           text="❤️ Vida: $vida | 🛡️ Coragem: $coragem" 
-           color="#ffff00" font-size="14" />
+    <agent id="dinheiro-display" x="50" y="80" 
+           text="💰 Dinheiro: $dinheiro moedas" 
+           color="#ffff00" font-size="16" />
     
-    <!-- Narrativa inicial -->
-    <fab-if when="not $escolha_feita">
-      <agent id="cenario" x="300" y="120" width="500" height="100"
-             text="Você caminha pela floresta sombria quando encontra uma bifurcação misteriosa. À esquerda, um caminho illuminado pela lua. À direita, um túnel escuro e úmido. Atrás de você, ouve-se uivos distantes..." 
-             color="#cccccc" font-size="16" />
-      
-      <!-- Opções de escolha -->
-      <agent id="esquerda" x="200" y="280" text="🌙 Seguir à esquerda\n(Caminho da Lua)" 
-             color="#87ceeb" animation="hover-grow"
-             on_click="set(escolha_feita, true); set(caminho, 'lua')" />
-      
-      <agent id="direita" x="400" y="280" text="🕳️ Entrar no túnel\n(Caminho Sombrio)" 
-             color="#8b4513" animation="hover-grow"
-             on_click="set(escolha_feita, true); set(caminho, 'sombra')" />
-      
-      <agent id="voltar" x="300" y="350" text="🏃 Correr de volta\n(Fugir dos uivos)" 
-             color="#ff6b6b" animation="hover-grow"
-             on_click="set(escolha_feita, true); set(caminho, 'fuga')" />
+    <agent id="mensagem-display" x="50" y="110" 
+           text="$mensagem" 
+           color="#ffffff" font-size="14" />
+    
+    <!-- Itens disponíveis para compra/coleta -->
+    <agent id="sword" x="100" y="200" image="tech-acid-1.png" 
+           width="50" height="50" draggable="true" 
+           on_drag="set(mensagem, 'Arrastando Espada (10 moedas)')" />
+    
+    <agent id="sword-label" x="100" y="260" text="Espada - 10 💰" 
+           color="#ffffff" font-size="12" />
+    
+    <agent id="shield" x="200" y="200" image="tech-saw.png" 
+           width="50" height="50" draggable="true"
+           on_drag="set(mensagem, 'Arrastando Escudo (15 moedas)')" />
+    
+    <agent id="shield-label" x="200" y="260" text="Escudo - 15 💰" 
+           color="#ffffff" font-size="12" />
+    
+    <agent id="potion" x="300" y="200" image="forest-mushroom.png" 
+           width="50" height="50" draggable="true"
+           on_drag="set(mensagem, 'Arrastando Poção (5 moedas)')" />
+    
+    <agent id="potion-label" x="300" y="260" text="Poção - 5 💰" 
+           color="#ffffff" font-size="12" />
+    
+    <!-- Área do inventário -->
+    <agent id="inventario-bg" x="450" y="150" width="300" height="200"
+           text="📦 INVENTÁRIO
+(Solte itens aqui)" 
+           color="#cccccc" font-size="16"
+           drop_accept="sword,shield,potion"
+           on_drop="set(mensagem, 'Item adicionado ao inventário!')" />
+    
+    <!-- Mostra itens no inventário -->
+    <fab-for each="item in $inventario" index="i">
+      <agent id="inv-item-$i" x="$i * 60 + 460" y="180" 
+             image="$item" width="40" height="40" />
+    </fab-for>
+    
+    <!-- Sistema de dinheiro -->
+    <fab-if when="$dinheiro <= 0">
+      <agent id="sem-dinheiro" x="300" y="350" 
+             text="💸 Sem dinheiro! Venda alguns itens!" 
+             color="#ff0000" font-size="16" animation="pulse" />
     </fab-if>
     
-    <!-- Consequências: Caminho da Lua -->
-    <fab-if when="$escolha_feita and $caminho = 'lua'">
-      <agent id="resultado-lua" x="300" y="150" width="500" height="120"
-             text="🌟 Você seguiu o caminho iluminado e encontrou um cristal mágico! Sua coragem aumenta e você se sente renovado. Um druida aparece e o guia em segurança." 
-             color="#e6e6fa" font-size="16" animation="fade-in" />
-      
-      <agent id="bonus-lua" x="300" y="280" 
-             text="✨ +20 Coragem | +10 Vida" 
-             color="#00ff00" font-size="18" animation="bounce-in"
-             on_click="set(coragem, $coragem + 20); set(vida, $vida + 10)" />
-    </fab-if>
-    
-    <!-- Consequências: Caminho das Sombras -->
-    <fab-if when="$escolha_feita and $caminho = 'sombra'">
-      <agent id="resultado-sombra" x="300" y="150" width="500" height="120"
-             text="💀 O túnel estava cheio de armadilhas! Você tropeça e se machuca, mas encontra um tesouro escondido. Sua vida diminui, mas você ganha experiência valiosa." 
-             color="#cd853f" font-size="16" animation="fade-in" />
-      
-      <agent id="bonus-sombra" x="300" y="280" 
-             text="⚔️ +10 Coragem | -20 Vida" 
-             color="#ffa500" font-size="18" animation="bounce-in"
-             on_click="set(coragem, $coragem + 10); set(vida, $vida - 20)" />
-    </fab-if>
-    
-    <!-- Consequências: Fuga -->
-    <fab-if when="$escolha_feita and $caminho = 'fuga'">
-      <agent id="resultado-fuga" x="300" y="150" width="500" height="120"
-             text="🏃 Você correu de volta mas tropeçou! Os uivos se aproximam... Sua coragem diminui, mas você consegue escapar por pouco e encontra uma cabana segura." 
-             color="#ffa07a" font-size="16" animation="fade-in" />
-      
-      <agent id="bonus-fuga" x="300" y="280" 
-             text="🏠 Lugar Seguro | -10 Coragem" 
-             color="#ff4500" font-size="18" animation="bounce-in"
-             on_click="set(coragem, $coragem - 10)" />
-    </fab-if>
-    
-    <!-- Botões de ação após escolha -->
-    <fab-if when="$escolha_feita">
-      <agent id="proximo-capitulo" x="200" y="400" text="📖 Próximo Capítulo" 
-             color="#ffffff" animation="hover-grow"
-             on_click="set(capitulo, $capitulo + 1); set(escolha_feita, false); set(caminho, '')" />
-      
-      <agent id="reiniciar" x="400" y="400" text="🔄 Recomeçar História" 
-             color="#ffffff" animation="hover-grow"
-             on_click="set(escolha_feita, false); set(caminho, ''); set(vida, 100); set(coragem, 50); set(capitulo, 1)" />
-    </fab-if>
-    
-    <!-- Sistema de Game Over -->
-    <fab-if when="$vida <= 0">
-      <agent id="game-over" x="300" y="250" 
-             text="💀 GAME OVER\nSua jornada terminou aqui..." 
-             color="#ff0000" font-size="24" animation="pulse" />
-      
-      <agent id="restart" x="300" y="350" text="🔄 Começar Nova Jornada" 
-             color="#ffffff" animation="hover-grow"
-             on_click="set(vida, 100); set(coragem, 50); set(capitulo, 1); set(escolha_feita, false); set(caminho, '')" />
-    </fab-if>
+    <!-- Botão de reset -->
+    <agent id="reset-loja" x="50" y="450" text="🔄 Resetar Loja" 
+           color="#ffffff" animation="hover-grow"
+           on_click="set(inventario, []); set(dinheiro, 50); set(mensagem, 'Loja resetada!')" />
   </page>
 </fable>
