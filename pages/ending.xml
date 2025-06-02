@@ -13,6 +13,13 @@
     <agent id="text" font-size="20" text="text" color="white" />
   </fab-if>
 
+  <fab-for each="i in 10">
+    <agent id="ground-$i" image="desert-ground-1.png"
+        x="$i * 80"
+        width="80"
+      />
+  </fab-for>
+
   <agent
     id="next_page_text"
     text="Primeira Pagina"
