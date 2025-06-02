@@ -1,7 +1,7 @@
 <page id="start2" bg_image="desert-bg.png" bg_music="osts-vilo.mp3">
   <agent
     id="teste"
-    text="Hello World Start 255"
+    text="Hello World Start"
     color="white"
     x="center"
     y="center"
