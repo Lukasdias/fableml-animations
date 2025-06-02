@@ -1,10 +1,86 @@
 <fable>
-  <config font-family="Satisfy" />
+  <!-- Configurações globais -->
+  <config font-family="Caveat" />
+  
+  <!-- Variáveis do diálogo -->
+  <property name="dialogo_atual" default="0" />
+  <property name="nome_jogador" default="Aventureiro" />
+  <property name="dialogos" default="['Olá, $nome_jogador!', 'Bem-vindo à nossa vila!', 'Precisa de ajuda com algo?', 'Que os ventos o guiem!']" />
+  <property name="falando" default="true" />
 
-  <property name="pontuacao" default="0" />
-  <property name="abriu_porta" default="false" />
-  <property name="visitante" default="Aventureiro" />
-
-  <start2 />
-  <ending />
+  <page id="conversa" bg_image="forest-bg.png">
+    <!-- Cenário -->
+    <agent id="titulo" x="300" y="30" 
+           text="🏘️ Conversa na Vila" 
+           color="#2d4a2d" font-size="24" />
+    
+    <!-- Personagem NPC -->
+    <agent id="npc" x="150" y="250" image="forest-hero-idle.png" 
+           width="80" height="80" animation="float" />
+    
+    <agent id="npc-nome" x="150" y="340" text="Aldeão Sábio" 
+           color="#2d4a2d" font-size="14" />
+    
+    <!-- Sistema de diálogos -->
+    <fab-if when="$dialogo_atual < $dialogos.length and $falando = 'true'">
+      <!-- Balão de diálogo -->
+      <agent id="balao-bg" x="300" y="180" width="350" height="80"
+             text="" />
+      
+      <agent id="balao-texto" x="320" y="200" 
+             text="$dialogos[$dialogo_atual]" 
+             color="#000000" font-size="16" />
+      
+      <!-- Botão para continuar -->
+      <agent id="continuar" x="500" y="240" text="Continuar ➤" 
+             color="#2d4a2d" font-size="14" animation="hover-grow"
+             on_click="set(dialogo_atual, $dialogo_atual + 1)" />
+    </fab-if>
+    
+    <!-- Opções de resposta (quando diálogo termina) -->
+    <fab-if when="$dialogo_atual >= $dialogos.length and $falando = 'true'">
+      <agent id="opcoes-titulo" x="300" y="150" 
+             text="O que você quer fazer?" 
+             color="#2d4a2d" font-size="18" />
+      
+      <agent id="opcao1" x="200" y="200" text="🛡️ Pedir missão" 
+             color="#ffffff" animation="hover-grow"
+             on_click="set(dialogos, ['Ótimo!', 'Há goblins nas montanhas...', 'Pode nos ajudar?']); set(dialogo_atual, 0)" />
+      
+      <agent id="opcao2" x="400" y="200" text="🛒 Visitar loja" 
+             color="#ffffff" animation="hover-grow"
+             on_click="goToPage('loja')" />
+      
+      <agent id="opcao3" x="300" y="250" text="👋 Despedir-se" 
+             color="#ffffff" animation="hover-grow"
+             on_click="set(falando, 'false')" />
+    </fab-if>
+    
+    <!-- Fim da conversa -->
+    <fab-if when="$falando = 'false'">
+      <agent id="fim-conversa" x="300" y="180" 
+             text="Conversa finalizada. Boa jornada!" 
+             color="#2d4a2d" font-size="18" animation="fade-in" />
+      
+      <agent id="reiniciar" x="300" y="220" text="🔄 Falar novamente" 
+             color="#2d4a2d" animation="hover-grow"
+             on_click="set(dialogo_atual, 0); set(falando, 'true')" />
+    </fab-if>
+    
+    <!-- Contador de progresso -->
+    <agent id="progresso" x="50" y="50" 
+           text="Diálogo: $dialogo_atual / $dialogos.length" 
+           color="#2d4a2d" font-size="12" />
+  </page>
+  
+  <!-- Página adicional da loja -->
+  <page id="loja" bg_color="#8b4513">
+    <agent id="loja-titulo" x="300" y="100" 
+           text="🛒 Bem-vindo à Loja!" 
+           color="#ffffff" font-size="24" />
+    
+    <agent id="voltar" x="300" y="400" text="← Voltar para Vila" 
+           color="#ffffff" animation="hover-grow"
+           on_click="goToPage('conversa')" />
+  </page>
 </fable>
