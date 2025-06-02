@@ -2,7 +2,7 @@
   <agent
     id="teste"
     text="Hello World Middle 3"
-    color="white"
+    color="blue"
     x="center"
     y="center"
     font-size="70"
