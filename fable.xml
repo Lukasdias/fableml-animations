@@ -1,7 +1,5 @@
 <fable>
-	<!-- Configurações globais -->
 	<config font-family="Roboto" />
-	<!-- Variáveis do inventário -->
 	<property name="pontuacao" default="0" />
 	<property name="dinheiro" default="50" />
 	<property name="vida" default="100" />
