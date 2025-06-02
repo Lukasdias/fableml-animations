@@ -2,6 +2,7 @@
   <config font-family="Schoolbell" />
 
   <property name="pontuacao" default="0" />
+  <property name="abriu_porta" default="false" />
   <property name="visitante" default="Aventureiro" />
 
   <start2 />
