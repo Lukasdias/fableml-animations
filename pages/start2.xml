@@ -8,6 +8,10 @@
     font-size="70"
   />
 
+  <agent id="new_agent" text="New Agent" />
+
+  <fab-if when="$pontuacao %2 = 0" />
+
   <agent
     id="next_page_text"
     text="Proxima Pagina"
