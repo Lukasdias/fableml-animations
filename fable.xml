@@ -45,7 +45,6 @@
     
     <agent id="pocao_vida" x="300" y="200" image="forest-mushroom.png" 
            width="50" height="50" draggable="true"
-           animation="pulse"
            on_drag="set(mensagem, 'Arrastando Poção de Vida!')" />
     
     <agent id="potion-label" x="300" y="260" text="Poção de Vida" 
@@ -53,7 +52,6 @@
     
     <agent id="gema_poder" x="400" y="200" image="desert-gem.png" 
            width="50" height="50" draggable="true"
-           animation="wiggle"
            on_drag="set(mensagem, 'Arrastando Gema do Poder!')" />
     
     <agent id="gem-label" x="400" y="260" text="Gema do Poder" 
@@ -107,7 +105,7 @@
     
     <!-- Botão de reset -->
     <agent id="reset-loja" x="50" y="520" text="🔄 Resetar Loja" 
-           color="#ffffff" animation="hover-grow"
+           color="#ffffff" 
            on_click="set(pontuacao, 0); set(dinheiro, 50); set(vida, 100); set(items_coletados, 0); set(mensagem, 'Loja resetada!')" />
     
     <!-- Instruções -->
