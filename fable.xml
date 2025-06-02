@@ -88,19 +88,19 @@
     <fab-if when="$pontuacao >= 100">
       <agent id="status_mestre" x="300" y="480" 
              text="🏆 STATUS: MESTRE AVENTUREIRO!" 
-             color="#ffd700" font-size="18" animation="bounce-in pulse" />
+             color="#ffd700" font-size="18"  />
     </fab-if>
     
     <fab-if when="$pontuacao < 100 and $pontuacao >= 50">
       <agent id="status_experiente" x="300" y="480" 
              text="⭐ STATUS: AVENTUREIRO EXPERIENTE" 
-             color="#87ceeb" font-size="16" animation="glow" />
+             color="#87ceeb" font-size="16"  />
     </fab-if>
     
     <fab-if when="$items_coletados >= 10">
       <agent id="colecionador" x="50" y="480" 
              text="📦 COLECIONADOR: +10 itens!" 
-             color="#90ee90" font-size="14" animation="typewriter" />
+             color="#90ee90" font-size="14"  />
     </fab-if>
     
     <!-- Botão de reset -->
