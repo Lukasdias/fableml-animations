@@ -6,6 +6,36 @@
   <property name="visitante" default="Aventureiro" />
 
   <start2 />
-  <middle />
+  <page id="middle" bg_image="snow-bg-neve.png" bg_music="osts-vilo.mp3">
+    <agent
+      id="teste"
+      text="Hello World Middle 3"
+      color="white"
+      x="center"
+      y="center"
+      font-size="70"
+    />
+
+    <agent
+      id="peixe_rodando"
+      x="center"
+      y="400"
+      draggable="true"
+      width="150"
+      video="videoplayback_1_.mp4"
+    />
+
+    <fab-if when="" />
+
+    <agent
+      id="next_page_text"
+      text="Proxima Pagina"
+      animation="glitch"
+      y="480"
+      x="640"
+      on_click="goToPage('ending')"
+    />
+  </page>
+
   <ending />
 </fable>
