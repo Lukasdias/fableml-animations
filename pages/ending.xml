@@ -6,6 +6,7 @@
     x="center"
     y="center"
     font-size="70"
+    on_click="set(abriu_porta, true)"
   />
 
   <fab-if when="$abriu_porta">
