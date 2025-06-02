@@ -49,7 +49,7 @@
     <agent id="potion-label" x="300" y="260" text="Poção de Vida" 
            color="#ffffff" font-size="12" />
     
-    <agent id="gema_poder" x="400" y="200" image="desert-gem.png" 
+    <agent id="gema_poder" x="400" y="200" image="cemetery-arrowsign.png" 
            width="50" height="50" draggable="true"
            on_drag="set(mensagem, 'Arrastando Gema do Poder!')" />
     
