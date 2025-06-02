@@ -45,8 +45,7 @@
     
     <!-- Área do inventário -->
     <agent id="inventario-bg" x="450" y="150" width="300" height="200"
-           text="📦 INVENTÁRIO
-(Solte itens aqui)" 
+           text="📦 INVENTÁRIO (Solte itens aqui)" 
            color="#cccccc" font-size="16"
            drop_accept="sword,shield,potion"
            on_drop="set(mensagem, 'Item adicionado ao inventário!')" />
