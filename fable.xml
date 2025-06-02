@@ -3,8 +3,10 @@
   <config font-family="Roboto" />
   
   <!-- Variáveis do inventário -->
-  <property name="inventario" default="[]" />
+  <property name="pontuacao" default="0" />
   <property name="dinheiro" default="50" />
+  <property name="vida" default="100" />
+  <property name="items_coletados" default="0" />
   <property name="mensagem" default="Arraste itens para o inventário!" />
 
   <page id="aventura" bg_color="#4a5568" bg_music="osts-retro-forest.mp3">
@@ -14,58 +16,104 @@
            color="#ffffff" font-size="24" />
     
     <agent id="dinheiro-display" x="50" y="80" 
-           text="💰 Dinheiro: $dinheiro moedas" 
+           text="💰 Dinheiro: $dinheiro | 💎 Pontos: $pontuacao" 
            color="#ffff00" font-size="16" />
     
-    <agent id="mensagem-display" x="50" y="110" 
+    <agent id="vida-display" x="50" y="110" 
+           text="❤️ Vida: $vida | 📦 Itens: $items_coletados" 
+           color="#ff6b6b" font-size="16" />
+    
+    <agent id="mensagem-display" x="50" y="140" 
            text="$mensagem" 
            color="#ffffff" font-size="14" />
     
     <!-- Itens disponíveis para compra/coleta -->
-    <agent id="sword" x="100" y="200" image="tech-acid-1.png" 
+    <agent id="sword_magica" x="100" y="200" image="tech-acid-1.png" 
            width="50" height="50" draggable="true" 
-           on_drag="set(mensagem, 'Arrastando Espada (10 moedas)')" />
+           animation="glow"
+           on_drag="set(mensagem, 'Arrastando Espada Mágica!')" />
     
-    <agent id="sword-label" x="100" y="260" text="Espada - 10 💰" 
+    <agent id="sword-label" x="100" y="260" text="Espada Mágica" 
            color="#ffffff" font-size="12" />
     
-    <agent id="shield" x="200" y="200" image="tech-saw.png" 
+    <agent id="shield_dourado" x="200" y="200" image="tech-saw.png" 
            width="50" height="50" draggable="true"
-           on_drag="set(mensagem, 'Arrastando Escudo (15 moedas)')" />
+           animation="float"
+           on_drag="set(mensagem, 'Arrastando Escudo Dourado!')" />
     
-    <agent id="shield-label" x="200" y="260" text="Escudo - 15 💰" 
+    <agent id="shield-label" x="200" y="260" text="Escudo Dourado" 
            color="#ffffff" font-size="12" />
     
-    <agent id="potion" x="300" y="200" image="forest-mushroom.png" 
+    <agent id="pocao_vida" x="300" y="200" image="forest-mushroom.png" 
            width="50" height="50" draggable="true"
-           on_drag="set(mensagem, 'Arrastando Poção (5 moedas)')" />
+           animation="pulse"
+           on_drag="set(mensagem, 'Arrastando Poção de Vida!')" />
     
-    <agent id="potion-label" x="300" y="260" text="Poção - 5 💰" 
+    <agent id="potion-label" x="300" y="260" text="Poção de Vida" 
            color="#ffffff" font-size="12" />
     
-    <!-- Área do inventário -->
-    <agent id="inventario-bg" x="450" y="150" width="300" height="200"
-           text="📦 INVENTÁRIO (Solte itens aqui)" 
-           color="#cccccc" font-size="16"
-           drop_accept="sword,shield,potion"
-           on_drop="set(mensagem, 'Item adicionado ao inventário!')" />
+    <agent id="gema_poder" x="400" y="200" image="desert-gem.png" 
+           width="50" height="50" draggable="true"
+           animation="wiggle"
+           on_drag="set(mensagem, 'Arrastando Gema do Poder!')" />
     
-    <!-- Mostra itens no inventário -->
-    <fab-for each="item in $inventario" index="i">
-      <agent id="inv-item-$i" x="$i * 60 + 460" y="180" 
-             image="$item" width="40" height="40" />
-    </fab-for>
+    <agent id="gem-label" x="400" y="260" text="Gema do Poder" 
+           color="#ffffff" font-size="12" />
     
-    <!-- Sistema de dinheiro -->
-    <fab-if when="$dinheiro <= 0">
-      <agent id="sem-dinheiro" x="300" y="350" 
-             text="💸 Sem dinheiro! Venda alguns itens!" 
-             color="#ff0000" font-size="16" animation="pulse" />
+    <!-- Inventário Principal - Sistema de Drop Values -->
+    <agent id="inventario_geral" x="450" y="350" width="250" height="120"
+           text="📦 INVENTÁRIO GERAL
+(Arraste itens aqui)" 
+           color="#ffffff" font-size="16"
+           drop_accept="sword_magica,shield_dourado,pocao_vida,gema_poder"
+           drop_values="15,25,10,50"
+           on_drop="set(pontuacao, $pontuacao + $drop_value); set(items_coletados, $items_coletados + 1); set(mensagem, 'Coletou $dropped_item! (+$drop_value pontos)')" />
+    
+    <!-- Loja - Compra com dinheiro -->
+    <agent id="loja" x="120" y="350" width="150" height="80"
+           text="🏪 LOJA
+(Ganha dinheiro)" 
+           color="#ffd700" font-size="14"
+           drop_accept="sword_magica,shield_dourado,pocao_vida,gema_poder"
+           drop_values="10,20,5,40"
+           on_drop="set(dinheiro, $dinheiro + $drop_value); set(mensagem, 'Vendeu $dropped_item por $drop_value moedas!')" />
+    
+    <!-- Hospital - Cura vida -->
+    <agent id="hospital" x="300" y="350" width="120" height="80"
+           text="🏥 HOSPITAL
+(Usa itens)" 
+           color="#ff6b6b" font-size="14"
+           drop_accept="pocao_vida,gema_poder"
+           drop_values="30,20"
+           on_drop="set(vida, $vida + $drop_value > 100 ? 100 : $vida + $drop_value); set(mensagem, 'Usou $dropped_item! +$drop_value vida')" />
+    
+    <!-- Sistema de status baseado em conquistas -->
+    <fab-if when="$pontuacao >= 100">
+      <agent id="status_mestre" x="300" y="480" 
+             text="🏆 STATUS: MESTRE AVENTUREIRO!" 
+             color="#ffd700" font-size="18" animation="bounce-in pulse" />
+    </fab-if>
+    
+    <fab-if when="$pontuacao < 100 and $pontuacao >= 50">
+      <agent id="status_experiente" x="300" y="480" 
+             text="⭐ STATUS: AVENTUREIRO EXPERIENTE" 
+             color="#87ceeb" font-size="16" animation="glow" />
+    </fab-if>
+    
+    <fab-if when="$items_coletados >= 10">
+      <agent id="colecionador" x="50" y="480" 
+             text="📦 COLECIONADOR: +10 itens!" 
+             color="#90ee90" font-size="14" animation="typewriter" />
     </fab-if>
     
     <!-- Botão de reset -->
-    <agent id="reset-loja" x="50" y="450" text="🔄 Resetar Loja" 
+    <agent id="reset-loja" x="50" y="520" text="🔄 Resetar Loja" 
            color="#ffffff" animation="hover-grow"
-           on_click="set(inventario, []); set(dinheiro, 50); set(mensagem, 'Loja resetada!')" />
+           on_click="set(pontuacao, 0); set(dinheiro, 50); set(vida, 100); set(items_coletados, 0); set(mensagem, 'Loja resetada!')" />
+    
+    <!-- Instruções -->
+    <agent id="instrucoes" x="450" y="500" 
+           text="💡 Cada área dá valores diferentes para os mesmos itens!" 
+           color="#cccccc" font-size="12" />
   </page>
 </fable>
