@@ -15,6 +15,7 @@
     y="50"
     color="red"
     font-size="30"
+    on_click="set(pontuacao, $pontuacao + 2)"
   />
 
   <fab-if when="$pontuacao %2 = 0">
