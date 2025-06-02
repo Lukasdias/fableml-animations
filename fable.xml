@@ -30,7 +30,6 @@
     <!-- Itens disponíveis para compra/coleta -->
     <agent id="sword_magica" x="100" y="200" image="tech-acid-1.png" 
            width="50" height="50" draggable="true" 
-           animation="glow"
            on_drag="set(mensagem, 'Arrastando Espada Mágica!')" />
     
     <agent id="sword-label" x="100" y="260" text="Espada Mágica" 
