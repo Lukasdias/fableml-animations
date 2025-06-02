@@ -13,12 +13,14 @@
     <agent id="text" font-size="20" text="text" color="white" />
   </fab-if>
 
+  <agent id="hero" x="20" y="300" width="80" image="forest-hero-idle.png" />
+
   <fab-for each="i in 10">
     <agent
       id="ground-$i"
       image="desert-ground-2.png"
       x="$i * 80"
-      y="$i * 40"
+      y="500"
       width="80"
       animation="slide-right"
     />
