@@ -1,5 +1,5 @@
 <fable>
-  <config font-family="Audiowide" />
+  <config font-family="Share Tech Mono" />
 
   <property name="pontuacao" default="0" />
   <property name="abriu_porta" default="false" />
