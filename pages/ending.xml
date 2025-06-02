@@ -1,7 +1,15 @@
 <page id="ending" bg_image="tech-bg-lab.png" bg_music="osts-vilo.mp3">
   <agent id="hero" x="20" y="330" image="forest-hero-idle.png" width="100" />
 
-  <agent id="door_open" x="600" y="340" image="forest-door-1.png" width="100" />
+  <agent
+    id="door_closed"
+    x="600"
+    y="340"
+    image="forest-door-1.png"
+    width="100"
+    drop_accept="hero"
+    on_drop="set(pontuacao, $pontuacao + 100)"
+  />
 
   <fab-for each="i in 10">
     <agent
