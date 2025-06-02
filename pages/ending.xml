@@ -9,7 +9,7 @@
     on_click="set(abriu_porta, !$abriu_porta)"
   />
 
-  <agent id="hero" x="20" y="300" width="80" image="forest-hero-idle.png" />
+  <agent id="hero" x="20" y="20" image="forest-hero-idle.png" />
 
   <fab-for each="i in 10">
     <agent
