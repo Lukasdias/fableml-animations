@@ -137,4 +137,4 @@
            color="#ffffff" animation="hover-grow"
            on_click="set(dano, 10); set(defesa, 8); set(vida, 50); set(mana, 30); set(pontuacao, 0); set(mensagem, 'Arena resetada! Pronto para nova batalha!')" />
   </page>
-</fable> 
+</fable>
