@@ -25,7 +25,16 @@
       video="videoplayback_1_.mp4"
     />
 
-    <fab-if when="" />
+    <fab-if when="$abriu_porta">
+      <agent
+        id="next_page_text1"
+        text="Proxima Pagina"
+        animation="glitch"
+        y="480"
+        x="640"
+        on_click="goToPage('ending')"
+      />
+    </fab-if>
 
     <agent
       id="next_page_text"
