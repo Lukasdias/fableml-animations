@@ -8,7 +8,7 @@
     font-size="70"
   />
 
-  <agent id="new_agent" text="New Agent" />
+  <agent id="new_agent" text="New Agent" x="center" y="50" color="red" font-size="30" />
 
   <fab-if when="$pontuacao %2 = 0" />
 
