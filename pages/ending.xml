@@ -1,7 +1,21 @@
 <page id="ending" bg_image="tech-bg-lab.png" bg_music="osts-vilo.mp3">
-  <agent id="hero" x="20" y="330" image="forest-hero-idle.png" width="100" />
+  <agent
+    id="hero"
+    x="20"
+    y="330"
+    image="forest-hero-idle.png"
+    width="100"
+    draggable="true"
+  />
 
-  <agent id="pont" x="center" y="center" text="Pontos = $pontuacao" />
+  <agent
+    id="pont"
+    x="center"
+    y="center"
+    text="Pontos = $pontuacao"
+    color="white"
+    font-size="45"
+  />
 
   <agent
     id="door_closed"
