@@ -9,10 +9,6 @@
     on_click="set(abriu_porta, !$abriu_porta)"
   />
 
-  <fab-if when="$abriu_porta">
-    <agent id="text" font-size="20" text="text" color="white" />
-  </fab-if>
-
   <agent id="hero" x="20" y="300" width="80" image="forest-hero-idle.png" />
 
   <fab-for each="i in 10">
