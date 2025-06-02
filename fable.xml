@@ -83,9 +83,7 @@
              color="#90ee90" font-size="14"  />
 		</fab-if>
 		<!-- Botão de reset -->
-		<agent id="reset-loja" x="50" y="520" text="🔄 Resetar Loja" 
-           color="#ffffff" 
-           on_click="set(pontuacao, 0); set(dinheiro, 50); set(vida, 100); set(items_coletados, 0); set(mensagem, 'Loja resetada!')" />
+		<agent id="reset-loja" x="50" y="520" text="🔄 Resetar Loja" color="#ffffff"  on_click="set(pontuacao, 0); set(dinheiro, 50); set(vida, 100); set(items_coletados, 0); set(mensagem, 'Loja resetada!')" />
 		<!-- Instruções -->
 		<agent id="instrucoes" x="450" y="500" 
            text="💡 Cada área dá valores diferentes para os mesmos itens!" 
