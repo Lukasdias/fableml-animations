@@ -17,6 +17,10 @@
     font-size="45"
   />
 
+  <fab-if when="$pontuacao > 0">
+    
+  </fab-if>
+
   <agent
     id="door_closed"
     x="600"
