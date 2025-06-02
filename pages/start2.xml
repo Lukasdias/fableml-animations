@@ -8,9 +8,18 @@
     font-size="70"
   />
 
-  <agent id="new_agent" text="New Agent" x="center" y="50" color="red" font-size="30" />
+  <agent
+    id="new_agent"
+    text="New Agent"
+    x="center"
+    y="50"
+    color="red"
+    font-size="30"
+  />
 
-  <fab-if when="$pontuacao %2 = 0" />
+  <fab-if when="$pontuacao %2 = 0">
+    <agent id="new_agent_2" text="New Agent" />
+  </fab-if>
 
   <agent
     id="next_page_text"
