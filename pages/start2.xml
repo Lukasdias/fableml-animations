@@ -19,7 +19,12 @@
   />
 
   <fab-if when="$pontuacao %2 = 0">
-    <agent id="new_agent_2" text="New Agent" color="blue" />
+    <agent
+      id="new_agent_2"
+      text="New Agent"
+      color="blue"
+      animation="bounce-in"
+    />
   </fab-if>
 
   <agent
