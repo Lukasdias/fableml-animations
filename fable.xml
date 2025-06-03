@@ -115,7 +115,6 @@
                      setIf($dinheiro >= 50, tem_chave, true)"
     />
 
-    <!-- Acesso condicional -->
     <agent
       id="area_secreta"
       x="250"
