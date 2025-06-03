@@ -1,7 +1,7 @@
 <fable>
   <config font-family="Roboto Mono" />
   
-  <!-- Variáveis para todos os tipos de teste -->
+  <!-- VariÃ¡veis para todos os tipos de teste -->
   <property name="contador_set" default="0" />
   <property name="contador_setif" default="0" />
   <property name="booleano_teste" default="false" />
@@ -11,13 +11,13 @@
   <property name="drag_contador" default="0" />
   <property name="navegacao_contador" default="0" />
 
-  <!-- Página de testes completos -->
+  <!-- PÃ¡gina de testes completos -->
   <page id="validacao_completa" bg_color="#1e1e2e">
-    <agent id="titulo_validacao" x="300" y="20" text="🧪 Validação Completa FableML" 
+    <agent id="titulo_validacao" x="300" y="20" text="ð§ª ValidaÃ§Ã£o Completa FableML" 
            color="#ffffff" font-size="18" />
 
-    <!-- Seção 1: Testes set() -->
-    <agent id="secao_set" x="50" y="60" text="📝 Testes set()" 
+    <!-- SeÃ§Ã£o 1: Testes set() -->
+    <agent id="secao_set" x="50" y="60" text="ð Testes set()" 
            color="#3498db" font-size="16" />
     
     <agent id="contador_display" x="50" y="80" 
@@ -36,28 +36,28 @@
            color="#95a5a6" animation="hover-grow"
            on_click="set(contador_set, 0)" />
     
-    <agent id="multiplicar" x="200" y="100" text="× 2" 
+    <agent id="multiplicar" x="200" y="100" text="Ã 2" 
            color="#9b59b6" animation="hover-grow"
            on_click="set(contador_set, $contador_set * 2)" />
 
-    <!-- Seção 2: Testes setIf() -->
-    <agent id="secao_setif" x="50" y="140" text="🔀 Testes setIf()" 
+    <!-- SeÃ§Ã£o 2: Testes setIf() -->
+    <agent id="secao_setif" x="50" y="140" text="ð Testes setIf()" 
            color="#f39c12" font-size="16" />
     
     <agent id="setif_display" x="50" y="160" 
            text="Contador setIf: $contador_setif | Booleano: $booleano_teste" 
            color="#ffffff" font-size="12" />
     
-    <!-- Teste condições numéricas -->
-    <agent id="setif_maior" x="50" y="180" text="Se > 5 então +10" 
+    <!-- Teste condiÃ§Ãµes numÃ©ricas -->
+    <agent id="setif_maior" x="50" y="180" text="Se > 5 entÃ£o +10" 
            color="#27ae60" animation="hover-grow"
            on_click="setIf($contador_set > 5, contador_setif, $contador_setif + 10)" />
     
-    <agent id="setif_menor" x="200" y="180" text="Se < 0 então reset" 
+    <agent id="setif_menor" x="200" y="180" text="Se < 0 entÃ£o reset" 
            color="#e74c3c" animation="hover-grow"
            on_click="setIf($contador_set < 0, contador_setif, 0)" />
     
-    <!-- Teste condições booleanas -->
+    <!-- Teste condiÃ§Ãµes booleanas -->
     <agent id="toggle_bool" x="350" y="180" text="Toggle Bool" 
            color="#9b59b6" animation="hover-grow"
            on_click="setIf($booleano_teste = false, booleano_teste, true);
@@ -72,15 +72,15 @@
            color="#8e44ad" animation="hover-grow"
            on_click="setIf($contador_set < -5 or $contador_set > 10, string_teste, 'extremo')" />
 
-    <!-- Seção 3: Drag and Drop Avançado -->
-    <agent id="secao_drag" x="50" y="240" text="🎯 Drag & Drop Completo" 
+    <!-- SeÃ§Ã£o 3: Drag and Drop AvanÃ§ado -->
+    <agent id="secao_drag" x="50" y="240" text="ð¯ Drag & Drop Completo" 
            color="#e67e22" font-size="16" />
     
     <agent id="drag_stats" x="50" y="260" 
            text="Drags corretos: $drag_contador" 
            color="#ffffff" font-size="12" />
 
-    <!-- Múltiplos itens drag -->
+    <!-- MÃºltiplos itens drag -->
     <agent id="item_a" x="50" y="280" width="40" height="30" 
            text="A" color="#ffffff" draggable="true" 
            drag_value="tipo_a" animation="hover-grow" />
@@ -93,7 +93,7 @@
            text="C" color="#ffffff" draggable="true" 
            drag_value="tipo_c" animation="hover-grow" />
 
-    <!-- Zonas específicas com validações complexas -->
+    <!-- Zonas especÃ­ficas com validaÃ§Ãµes complexas -->
     <agent id="zona_a" x="250" y="280" width="80" height="30" 
            text="Zona A" color="#27ae60" drag-item="tipo_a"
            on_drop="setIf(drag_value = 'tipo_a', drag_contador, $drag_contador + 1);
@@ -103,8 +103,8 @@
            text="Multi Zone" color="#3498db" drag-item="tipo_b,tipo_c"
            on_drop="setIf(drag_value = 'tipo_b' or drag_value = 'tipo_c', drag_contador, $drag_contador + 2)" />
 
-    <!-- Seção 4: Navegação complexa -->
-    <agent id="secao_nav" x="50" y="320" text="🚀 Navegação Avançada" 
+    <!-- SeÃ§Ã£o 4: NavegaÃ§Ã£o complexa -->
+    <agent id="secao_nav" x="50" y="320" text="ð NavegaÃ§Ã£o AvanÃ§ada" 
            color="#1abc9c" font-size="16" />
     
     <agent id="nav_condicional" x="50" y="340" text="Ir se contador > 5" 
@@ -130,7 +130,7 @@
            color="#7f8c8d" animation="hover-grow"
            on_click="set(string_teste, '')" />
     
-    <agent id="edge_case_3" x="250" y="400" text="Número negativo" 
+    <agent id="edge_case_3" x="250" y="400" text="NÃºmero negativo" 
            color="#7f8c8d" animation="hover-grow"
            on_click="set(numero_decimal, -1.5)" />
 
@@ -140,36 +140,36 @@
            on_click="setIf($contador_set < 10, contador_set, $contador_set + 1)" />
   </page>
 
-  <!-- Página secreta (navegação condicional) -->
+  <!-- PÃ¡gina secreta (navegaÃ§Ã£o condicional) -->
   <page id="pagina_secreta" bg_color="#8e44ad">
-    <agent id="titulo_secreta" x="300" y="100" text="🔐 Página Secreta Desbloqueada!" 
+    <agent id="titulo_secreta" x="300" y="100" text="ð PÃ¡gina Secreta Desbloqueada!" 
            color="#ffffff" font-size="20" />
     
     <agent id="info_acesso" x="300" y="150" 
-           text="Você acessou esta página porque contador > 5" 
+           text="VocÃª acessou esta pÃ¡gina porque contador > 5" 
            color="#ecf0f1" font-size="14" />
     
-    <agent id="voltar_teste" x="300" y="300" text="⬅️ Voltar aos Testes" 
+    <agent id="voltar_teste" x="300" y="300" text="â¬ï¸ Voltar aos Testes" 
            color="#3498db" animation="hover-grow"
            on_click="goToPage(validacao_completa)" />
   </page>
 
-  <!-- Página drag master -->
+  <!-- PÃ¡gina drag master -->
   <page id="pagina_drag_master" bg_color="#27ae60">
-    <agent id="titulo_drag_master" x="300" y="100" text="🏆 Drag Master!" 
+    <agent id="titulo_drag_master" x="300" y="100" text="ð Drag Master!" 
            color="#ffffff" font-size="20" />
     
     <agent id="info_drag" x="300" y="150" 
-           text="Você dominou o sistema de drag & drop!" 
+           text="VocÃª dominou o sistema de drag & drop!" 
            color="#ecf0f1" font-size="14" />
     
-    <agent id="reset_tudo" x="300" y="250" text="🔄 Reset Completo" 
+    <agent id="reset_tudo" x="300" y="250" text="ð Reset Completo" 
            color="#e74c3c" animation="hover-grow"
            on_click="set(contador_set, 0); set(contador_setif, 0); 
                      set(booleano_teste, false); set(string_teste, 'inicial');
                      set(drag_contador, 0); set(navegacao_contador, 0)" />
     
-    <agent id="voltar_teste2" x="300" y="300" text="⬅️ Voltar aos Testes" 
+    <agent id="voltar_teste2" x="300" y="300" text="â¬ï¸ Voltar aos Testes" 
            color="#3498db" animation="hover-grow"
            on_click="goToPage(validacao_completa)" />
   </page>
