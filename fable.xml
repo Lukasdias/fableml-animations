@@ -1,193 +1,176 @@
 <fable>
-  <config font-family="Poppins" />
+  <config font-family="Roboto Mono" />
+  
+  <!-- Variáveis para todos os tipos de teste -->
+  <property name="contador_set" default="0" />
+  <property name="contador_setif" default="0" />
+  <property name="booleano_teste" default="false" />
+  <property name="string_teste" default="inicial" />
+  <property name="numero_decimal" default="0.5" />
+  <property name="array_size" default="0" />
+  <property name="drag_contador" default="0" />
+  <property name="navegacao_contador" default="0" />
 
-  <!-- Variáveis do sistema -->
-  <property name="pontos" default="0" />
-  <property name="vida" default="100" />
-  <property name="nivel" default="1" />
-  <property name="dinheiro" default="50" />
-  <property name="tem_chave" default="false" />
-  <property name="fase_atual" default="1" />
+  <!-- Página de testes completos -->
+  <page id="validacao_completa" bg_color="#1e1e2e">
+    <agent id="titulo_validacao" x="300" y="20" text="🧪 Validação Completa FableML" 
+           color="#ffffff" font-size="18" />
 
-  <!-- Página inicial - Demonstra set() -->
-  <page id="inicio" bg_color="#2c3e50">
-    <agent
-      id="titulo"
-      x="300"
-      y="50"
-      text="🎮 Teste de Funções FableML"
-      color="#ffffff"
-      font-size="24"
-    />
+    <!-- Seção 1: Testes set() -->
+    <agent id="secao_set" x="50" y="60" text="📝 Testes set()" 
+           color="#3498db" font-size="16" />
+    
+    <agent id="contador_display" x="50" y="80" 
+           text="Contador: $contador_set" 
+           color="#ffffff" font-size="12" />
+    
+    <agent id="incrementar" x="50" y="100" text="+ 1" 
+           color="#27ae60" animation="hover-grow"
+           on_click="set(contador_set, $contador_set + 1)" />
+    
+    <agent id="decrementar" x="100" y="100" text="- 1" 
+           color="#e74c3c" animation="hover-grow"
+           on_click="set(contador_set, $contador_set - 1)" />
+    
+    <agent id="reset_contador" x="150" y="100" text="Reset" 
+           color="#95a5a6" animation="hover-grow"
+           on_click="set(contador_set, 0)" />
+    
+    <agent id="multiplicar" x="200" y="100" text="× 2" 
+           color="#9b59b6" animation="hover-grow"
+           on_click="set(contador_set, $contador_set * 2)" />
 
-    <agent
-      id="stats"
-      x="50"
-      y="100"
-      text="Pontos: $pontos | Vida: $vida | Nível: $nivel | Dinheiro: $dinheiro"
-      color="#ffffff"
-      font-size="14"
-    />
+    <!-- Seção 2: Testes setIf() -->
+    <agent id="secao_setif" x="50" y="140" text="🔀 Testes setIf()" 
+           color="#f39c12" font-size="16" />
+    
+    <agent id="setif_display" x="50" y="160" 
+           text="Contador setIf: $contador_setif | Booleano: $booleano_teste" 
+           color="#ffffff" font-size="12" />
+    
+    <!-- Teste condições numéricas -->
+    <agent id="setif_maior" x="50" y="180" text="Se > 5 então +10" 
+           color="#27ae60" animation="hover-grow"
+           on_click="setIf($contador_set > 5, contador_setif, $contador_setif + 10)" />
+    
+    <agent id="setif_menor" x="200" y="180" text="Se < 0 então reset" 
+           color="#e74c3c" animation="hover-grow"
+           on_click="setIf($contador_set < 0, contador_setif, 0)" />
+    
+    <!-- Teste condições booleanas -->
+    <agent id="toggle_bool" x="350" y="180" text="Toggle Bool" 
+           color="#9b59b6" animation="hover-grow"
+           on_click="setIf($booleano_teste = false, booleano_teste, true);
+                     setIf($booleano_teste = true, booleano_teste, false)" />
+    
+    <!-- Teste AND/OR -->
+    <agent id="setif_and" x="50" y="200" text="Se >0 AND bool=true" 
+           color="#3498db" animation="hover-grow"
+           on_click="setIf($contador_set > 0 and $booleano_teste = true, string_teste, 'ambos_true')" />
+    
+    <agent id="setif_or" x="200" y="200" text="Se <-5 OR >10" 
+           color="#8e44ad" animation="hover-grow"
+           on_click="setIf($contador_set < -5 or $contador_set > 10, string_teste, 'extremo')" />
 
-    <!-- Testes com set() -->
-    <agent
-      id="ganhar_pontos"
-      x="100"
-      y="200"
-      text="+ 10 Pontos"
-      color="#27ae60"
-      animation="hover-grow"
-      on_click="set(pontos, $pontos + 10)"
-    />
+    <!-- Seção 3: Drag and Drop Avançado -->
+    <agent id="secao_drag" x="50" y="240" text="🎯 Drag & Drop Completo" 
+           color="#e67e22" font-size="16" />
+    
+    <agent id="drag_stats" x="50" y="260" 
+           text="Drags corretos: $drag_contador" 
+           color="#ffffff" font-size="12" />
 
-    <agent
-      id="ganhar_dinheiro"
-      x="250"
-      y="200"
-      text="+ 25 Moedas"
-      color="#f39c12"
-      animation="hover-grow"
-      on_click="set(dinheiro, $dinheiro + 25)"
-    />
+    <!-- Múltiplos itens drag -->
+    <agent id="item_a" x="50" y="280" width="40" height="30" 
+           text="A" color="#ffffff" draggable="true" 
+           drag_value="tipo_a" animation="hover-grow" />
+    
+    <agent id="item_b" x="100" y="280" width="40" height="30" 
+           text="B" color="#ffffff" draggable="true" 
+           drag_value="tipo_b" animation="hover-grow" />
+    
+    <agent id="item_c" x="150" y="280" width="40" height="30" 
+           text="C" color="#ffffff" draggable="true" 
+           drag_value="tipo_c" animation="hover-grow" />
 
-    <agent
-      id="subir_nivel"
-      x="400"
-      y="200"
-      text="Level Up!"
-      color="#9b59b6"
-      animation="hover-grow"
-      on_click="set(nivel, $nivel + 1); set(vida, 100); set(pontos, $pontos + 50)"
-    />
+    <!-- Zonas específicas com validações complexas -->
+    <agent id="zona_a" x="250" y="280" width="80" height="30" 
+           text="Zona A" color="#27ae60" drag-item="tipo_a"
+           on_drop="setIf(drag_value = 'tipo_a', drag_contador, $drag_contador + 1);
+                    setIf(drag_value = 'tipo_a', string_teste, 'correto_a')" />
+    
+    <agent id="zona_multiple" x="350" y="280" width="80" height="30" 
+           text="Multi Zone" color="#3498db" drag-item="tipo_b,tipo_c"
+           on_drop="setIf(drag_value = 'tipo_b' or drag_value = 'tipo_c', drag_contador, $drag_contador + 2)" />
 
-    <!-- Botão para página de testes setIf() -->
-    <agent
-      id="ir_setif"
-      x="300"
-      y="300"
-      text="🔀 Testar setIf()"
-      color="#3498db"
-      animation="hover-grow"
-      on_click="goToPage(teste_setif)"
-    />
+    <!-- Seção 4: Navegação complexa -->
+    <agent id="secao_nav" x="50" y="320" text="🚀 Navegação Avançada" 
+           color="#1abc9c" font-size="16" />
+    
+    <agent id="nav_condicional" x="50" y="340" text="Ir se contador > 5" 
+           color="#34495e" animation="hover-grow"
+           on_click="setIf($contador_set > 5, navegacao_contador, $navegacao_contador + 1);
+                     setIf($contador_set > 5, goToPage, pagina_secreta)" />
+    
+    <agent id="nav_drag" x="200" y="340" text="Ir se 3+ drags" 
+           color="#34495e" animation="hover-grow"
+           on_click="setIf($drag_contador >= 3, goToPage, pagina_drag_master)" />
+
+    <!-- Status display -->
+    <agent id="status_geral" x="300" y="380" 
+           text="String: $string_teste | Decimal: $numero_decimal" 
+           color="#ffd700" font-size="10" />
+
+    <!-- Testes edge cases -->
+    <agent id="edge_case_1" x="50" y="400" text="Teste 0 = false" 
+           color="#7f8c8d" animation="hover-grow"
+           on_click="setIf($contador_set = 0, string_teste, 'zero_eh_false')" />
+    
+    <agent id="edge_case_2" x="150" y="400" text="String vazia" 
+           color="#7f8c8d" animation="hover-grow"
+           on_click="set(string_teste, '')" />
+    
+    <agent id="edge_case_3" x="250" y="400" text="Número negativo" 
+           color="#7f8c8d" animation="hover-grow"
+           on_click="set(numero_decimal, -1.5)" />
+
+    <!-- Loop test -->
+    <agent id="loop_test" x="350" y="400" text="Loop 10x" 
+           color="#e74c3c" animation="hover-grow"
+           on_click="setIf($contador_set < 10, contador_set, $contador_set + 1)" />
   </page>
 
-  <!-- Página de testes setIf() -->
-  <page id="teste_setif" bg_color="#34495e">
-    <agent
-      id="titulo2"
-      x="300"
-      y="50"
-      text="🔀 Testes com setIf()"
-      color="#ffffff"
-      font-size="24"
-    />
-
-    <agent
-      id="stats2"
-      x="50"
-      y="100"
-      text="Pontos: $pontos | Vida: $vida | Dinheiro: $dinheiro | Chave: $tem_chave"
-      color="#ffffff"
-      font-size="14"
-    />
-
-    <!-- Testes condicionais -->
-    <agent
-      id="comprar_pocao"
-      x="150"
-      y="200"
-      text="🧪 Comprar Poção (20 moedas)"
-      color="#e74c3c"
-      animation="hover-grow"
-      on_click="setIf($dinheiro >= 20, dinheiro, $dinheiro - 20);
-                     setIf($dinheiro >= 20, vida, $vida + 30)"
-    />
-
-    <agent
-      id="comprar_chave"
-      x="350"
-      y="200"
-      text="🗝️ Comprar Chave (50 moedas)"
-      color="#f1c40f"
-      animation="hover-grow"
-      on_click="setIf($dinheiro >= 50, dinheiro, $dinheiro - 50);
-                     setIf($dinheiro >= 50, tem_chave, true)"
-    />
-
-    <agent
-      id="area_secreta"
-      x="250"
-      y="300"
-      text="🚪 Área Secreta (precisa da chave)"
-      color="#95a5a6"
-      animation="hover-grow"
-      on_click="setIf($tem_chave = true, fase_atual, 2);
-                     setIf($tem_chave = true, goToPage, area_secreta)"
-    />
-
-    <agent
-      id="voltar_inicio"
-      x="100"
-      y="400"
-      text="⬅️ Voltar"
-      color="#7f8c8d"
-      animation="hover-grow"
-      on_click="goToPage(inicio)"
-    />
-
-    <!-- Mostra mensagem se não tem chave -->
-    <fab-if when="not $tem_chave">
-      <agent
-        id="sem_chave"
-        x="450"
-        y="300"
-        text="❌ Precisa da chave!"
-        color="#e74c3c"
-        font-size="12"
-      />
-    </fab-if>
+  <!-- Página secreta (navegação condicional) -->
+  <page id="pagina_secreta" bg_color="#8e44ad">
+    <agent id="titulo_secreta" x="300" y="100" text="🔐 Página Secreta Desbloqueada!" 
+           color="#ffffff" font-size="20" />
+    
+    <agent id="info_acesso" x="300" y="150" 
+           text="Você acessou esta página porque contador > 5" 
+           color="#ecf0f1" font-size="14" />
+    
+    <agent id="voltar_teste" x="300" y="300" text="⬅️ Voltar aos Testes" 
+           color="#3498db" animation="hover-grow"
+           on_click="goToPage(validacao_completa)" />
   </page>
 
-  <!-- Área secreta - só acessível com chave -->
-  <page id="area_secreta" bg_color="#8e44ad">
-    <agent
-      id="titulo3"
-      x="300"
-      y="50"
-      text="🏆 Área Secreta Desbloqueada!"
-      color="#ffffff"
-      font-size="24"
-    />
-
-    <agent
-      id="tesouro"
-      x="300"
-      y="200"
-      text="💎 Você encontrou um tesouro!"
-      color="#f1c40f"
-      font-size="18"
-      animation="bounce-in"
-    />
-
-    <agent
-      id="pegar_tesouro"
-      x="300"
-      y="300"
-      text="💰 Pegar Tesouro"
-      color="#27ae60"
-      animation="hover-grow"
-      on_click="set(dinheiro, $dinheiro + 100); set(pontos, $pontos + 500)"
-    />
-
-    <agent
-      id="voltar_setif"
-      x="300"
-      y="400"
-      text="⬅️ Voltar aos Testes"
-      color="#3498db"
-      animation="hover-grow"
-      on_click="goToPage(teste_setif)"
-    />
+  <!-- Página drag master -->
+  <page id="pagina_drag_master" bg_color="#27ae60">
+    <agent id="titulo_drag_master" x="300" y="100" text="🏆 Drag Master!" 
+           color="#ffffff" font-size="20" />
+    
+    <agent id="info_drag" x="300" y="150" 
+           text="Você dominou o sistema de drag & drop!" 
+           color="#ecf0f1" font-size="14" />
+    
+    <agent id="reset_tudo" x="300" y="250" text="🔄 Reset Completo" 
+           color="#e74c3c" animation="hover-grow"
+           on_click="set(contador_set, 0); set(contador_setif, 0); 
+                     set(booleano_teste, false); set(string_teste, 'inicial');
+                     set(drag_contador, 0); set(navegacao_contador, 0)" />
+    
+    <agent id="voltar_teste2" x="300" y="300" text="⬅️ Voltar aos Testes" 
+           color="#3498db" animation="hover-grow"
+           on_click="goToPage(validacao_completa)" />
   </page>
 </fable>
