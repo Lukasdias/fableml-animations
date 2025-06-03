@@ -51,7 +51,7 @@
       
       <agent id="bonus-lua" x="300" y="280" 
              text="✨ +20 Coragem | +10 Vida" 
-             color="#00ff00" font-size="18" animation="bounce-in"
+             color="#00ff00" font-size="18" animation="test"
              on_click="set(coragem, $coragem + 20); set(vida, $vida + 10)" />
     </fab-if>
     
