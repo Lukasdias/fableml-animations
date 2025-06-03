@@ -73,15 +73,15 @@
 
     <agent id="item_a" x="50" y="280" width="40" height="30" 
            text="A" color="#ffffff" draggable="true" 
-           drag_value="tipo_a" animation="hover-grow" />
+           drag_value="tipo_a"  />
     
     <agent id="item_b" x="100" y="280" width="40" height="30" 
            text="B" color="#ffffff" draggable="true" 
-           drag_value="tipo_b" animation="hover-grow" />
+           drag_value="tipo_b"  />
     
     <agent id="item_c" x="150" y="280" width="40" height="30" 
            text="C" color="#ffffff" draggable="true" 
-           drag_value="tipo_c" animation="hover-grow" />
+           drag_value="tipo_c"  />
 
     <agent id="zona_a" x="250" y="280" width="80" height="30" 
            text="Zona A" color="#27ae60" drag-item="tipo_a"
