@@ -1,159 +1,101 @@
 <fable>
-  <config font-family="Arial" />
-  
-  <property name="contador_set" default="0" />
-  <property name="contador_setif" default="0" />
-  <property name="booleano_teste" default="false" />
-  <property name="string_teste" default="inicial" />
-  <property name="numero_decimal" default="0.5" />
-  <property name="drag_contador" default="0" />
-  <property name="navegacao_contador" default="0" />
+  <!-- Configurações globais -->
+  <config font-family="Poppins" />
 
-  <page id="validacao_completa" bg_color="#1e1e2e">
-    <agent id="titulo_validacao" x="300" y="20" text="Validacao Completa FableML" 
-           color="#ffffff" font-size="18" />
+  <!-- Variáveis do sistema -->
+  <property name="pontuacao" default="0" />
+  <property name="nivel" default="1" />
 
-    <agent id="secao_set" x="50" y="60" text="Testes set()" 
-           color="#3498db" font-size="16" />
-    
-    <agent id="contador_display" x="50" y="80" 
-           text="Contador: $contador_set" 
-           color="#ffffff" font-size="12" />
-    
-    <agent id="incrementar" x="50" y="100" text="Somar 1" 
-           color="#27ae60" animation="hover-grow"
-           on_click="set(contador_set, $contador_set + 1)" />
-    
-    <agent id="decrementar" x="100" y="100" text="Subtrair 1" 
-           color="#e74c3c" animation="hover-grow"
-           on_click="set(contador_set, $contador_set - 1)" />
-    
-    <agent id="reset_contador" x="150" y="100" text="Zerar" 
-           color="#95a5a6" animation="hover-grow"
-           on_click="set(contador_set, 0)" />
-    
-    <agent id="multiplicar" x="200" y="100" text="Multiplicar por 2" 
-           color="#9b59b6" animation="hover-grow"
-           on_click="set(contador_set, $contador_set * 2)" />
+  <page id="jogo" bg_color="#2a5d31">
+    <!-- Display da pontuação -->
+    <agent
+      id="score"
+      x="50"
+      y="50"
+      text="Pontos: $pontuacao | Nível: $nivel"
+      color="#ffffff"
+      font-size="18"
+    />
 
-    <agent id="secao_setif" x="50" y="140" text="Testes setIf()" 
-           color="#f39c12" font-size="16" />
-    
-    <agent id="setif_display" x="50" y="160" 
-           text="Contador setIf: $contador_setif | Booleano: $booleano_teste" 
-           color="#ffffff" font-size="12" />
-    
-    <agent id="setif_maior" x="50" y="180" text="Se maior que 5 entao somar 10" 
-           color="#27ae60" animation="hover-grow"
-           on_click="setIf($contador_set > 5, contador_setif, $contador_setif + 10)" />
-    
-    <agent id="setif_menor" x="250" y="180" text="Se menor que 0 entao resetar" 
-           color="#e74c3c" animation="hover-grow"
-           on_click="setIf($contador_set < 0, contador_setif, 0)" />
-    
-    <agent id="toggle_bool" x="450" y="180" text="Alternar Booleano" 
-           color="#9b59b6" animation="hover-grow"
-           on_click="setIf($booleano_teste = false, booleano_teste, true);
-                     setIf($booleano_teste = true, booleano_teste, false)" />
-    
-    <agent id="setif_and" x="50" y="200" text="Se maior que 0 E bool verdadeiro" 
-           color="#3498db" animation="hover-grow"
-           on_click="setIf($contador_set > 0 and $booleano_teste = true, string_teste, 'ambos_true')" />
-    
-    <agent id="setif_or" x="300" y="200" text="Se menor que -5 OU maior que 10" 
-           color="#8e44ad" animation="hover-grow"
-           on_click="setIf($contador_set < -5 or $contador_set > 10, string_teste, 'extremo')" />
+    <!-- Botões que dão pontos -->
+    <agent
+      id="btn-easy"
+      x="100"
+      y="300"
+      text="Fácil (+1)"
+      color="#ffffff"
+      animation="hover-grow"
+      on_click="set(pontuacao, $pontuacao + 1)"
+    />
 
-    <agent id="secao_drag" x="50" y="240" text="Drag Drop Completo" 
-           color="#e67e22" font-size="16" />
-    
-    <agent id="drag_stats" x="50" y="260" 
-           text="Drags corretos: $drag_contador" 
-           color="#ffffff" font-size="12" />
+    <agent
+      id="btn-medium"
+      x="250"
+      y="300"
+      text="Médio (+3)"
+      color="#ffffff"
+      animation="hover-grow"
+      on_click="set(pontuacao, $pontuacao + 3)"
+    />
 
-    <agent id="item_a" x="50" y="280" width="40" height="30" 
-           text="A" color="#ffffff" draggable="true" 
-           drag_value="tipo_a"  />
-    
-    <agent id="item_b" x="100" y="280" width="40" height="30" 
-           text="B" color="#ffffff" draggable="true" 
-           drag_value="tipo_b"  />
-    
-    <agent id="item_c" x="150" y="280" width="40" height="30" 
-           text="C" color="#ffffff" draggable="true" 
-           drag_value="tipo_c"  />
+    <agent
+      id="btn-hard"
+      x="400"
+      y="300"
+      text="Difícil (+5)"
+      color="#ffffff"
+      animation="hover-grow"
+      on_click="set(pontuacao, $pontuacao + 5)"
+    />
 
-    <agent id="zona_a" x="250" y="280" width="80" height="30" 
-           text="Zona A" color="#27ae60" drag-item="tipo_a"
-           on_drop="setIf(drag_value = 'tipo_a', drag_contador, $drag_contador + 1);
-                    setIf(drag_value = 'tipo_a', string_teste, 'correto_a')" />
-    
-    <agent id="zona_multiple" x="350" y="280" width="80" height="30" 
-           text="Zona Multi" color="#3498db" drag-item="tipo_b,tipo_c"
-           on_drop="setIf(drag_value = 'tipo_b' or drag_value = 'tipo_c', drag_contador, $drag_contador + 2)" />
+    <!-- Sistema de níveis automático -->
+    <fab-if when="$pontuacao >= 10 and $nivel = 1">
+      <agent
+        id="level-up-1"
+        x="300"
+        y="150"
+        text="NÍVEL 2 DESBLOQUEADO!"
+        color="#ffff00"
+        font-size="20"
+        animation="bounce-in"
+        on_click="set(nivel, 2)"
+      />
+    </fab-if>
 
-    <agent id="secao_nav" x="50" y="320" text="Navegacao Avancada" 
-           color="#1abc9c" font-size="16" />
-    
-    <agent id="nav_condicional" x="50" y="340" text="Ir se contador maior que 5" 
-           color="#34495e" animation="hover-grow"
-           on_click="setIf($contador_set > 5, navegacao_contador, $navegacao_contador + 1);
-                     setIf($contador_set > 5, goToPage, pagina_secreta)" />
-    
-    <agent id="nav_drag" x="300" y="340" text="Ir se 3 ou mais drags" 
-           color="#34495e" animation="hover-grow"
-           on_click="setIf($drag_contador >= 3, goToPage, pagina_drag_master)" />
+    <fab-if when="$pontuacao >= 25 and $nivel = 2">
+      <agent
+        id="level-up-2"
+        x="300"
+        y="150"
+        text="NÍVEL 3 DESBLOQUEADO!"
+        color="#ff8800"
+        font-size="20"
+        animation="bounce-in"
+        on_click="set(nivel, 3)"
+      />
+    </fab-if>
 
-    <agent id="status_geral" x="300" y="380" 
-           text="String: $string_teste | Decimal: $numero_decimal" 
-           color="#ffd700" font-size="10" />
+    <!-- Recompensa por atingir meta -->
+    <fab-if when="$pontuacao >= 50">
+      <agent
+        id="parabens"
+        x="300"
+        y="400"
+        text="🏆 PARABÉNS! VOCÊ VENCEU!"
+        color="#ffd700"
+        font-size="24"
+        animation="bounce-in pulse"
+      />
 
-    <agent id="edge_case_1" x="50" y="400" text="Teste zero igual falso" 
-           color="#7f8c8d" animation="hover-grow"
-           on_click="setIf($contador_set = 0, string_teste, 'zero_eh_false')" />
-    
-    <agent id="edge_case_2" x="200" y="400" text="String vazia" 
-           color="#7f8c8d" animation="hover-grow"
-           on_click="set(string_teste, '')" />
-    
-    <agent id="edge_case_3" x="320" y="400" text="Numero negativo" 
-           color="#7f8c8d" animation="hover-grow"
-           on_click="set(numero_decimal, -1.5)" />
-
-    <agent id="loop_test" x="450" y="400" text="Loop 10 vezes" 
-           color="#e74c3c" animation="hover-grow"
-           on_click="setIf($contador_set < 10, contador_set, $contador_set + 1)" />
-  </page>
-
-  <page id="pagina_secreta" bg_color="#8e44ad">
-    <agent id="titulo_secreta" x="300" y="100" text="Pagina Secreta Desbloqueada!" 
-           color="#ffffff" font-size="20" />
-    
-    <agent id="info_acesso" x="300" y="150" 
-           text="Voce acessou esta pagina porque contador maior que 5" 
-           color="#ecf0f1" font-size="14" />
-    
-    <agent id="voltar_teste" x="300" y="300" text="Voltar aos Testes" 
-           color="#3498db" animation="hover-grow"
-           on_click="goToPage(validacao_completa)" />
-  </page>
-
-  <page id="pagina_drag_master" bg_color="#27ae60">
-    <agent id="titulo_drag_master" x="300" y="100" text="Drag Master!" 
-           color="#ffffff" font-size="20" />
-    
-    <agent id="info_drag" x="300" y="150" 
-           text="Voce dominou o sistema de drag e drop!" 
-           color="#ecf0f1" font-size="14" />
-    
-    <agent id="reset_tudo" x="300" y="250" text="Reset Completo" 
-           color="#e74c3c" animation="hover-grow"
-           on_click="set(contador_set, 0); set(contador_setif, 0); 
-                     set(booleano_teste, false); set(string_teste, 'inicial');
-                     set(drag_contador, 0); set(navegacao_contador, 0)" />
-    
-    <agent id="voltar_teste2" x="300" y="300" text="Voltar aos Testes" 
-           color="#3498db" animation="hover-grow"
-           on_click="goToPage(validacao_completa)" />
+      <agent
+        id="reset"
+        x="300"
+        y="450"
+        text="Jogar Novamente"
+        color="#ffffff"
+        animation="hover-grow"
+        on_click="set(pontuacao, 0); set(nivel, 1)"
+      />
+    </fab-if>
   </page>
 </fable>
