@@ -46,10 +46,10 @@
       <!-- Opções de escolha - Distribuídas horizontalmente -->
       <agent
         id="esquerda"
-        x="150"
+        x="0"
         y="240"
-        width="200"
         height="60"
+        width="200"
         text="🌙 Seguir à esquerda
 (Caminho da Lua)"
         color="#87ceeb"
@@ -60,10 +60,10 @@
 
       <agent
         id="direita"
-        x="center"
+        x="300"
         y="240"
-        width="200"
         height="60"
+        width="200"
         text="🕳️ Entrar no túnel
 (Caminho Sombrio)"
         color="#8b4513"
@@ -74,10 +74,10 @@
 
       <agent
         id="voltar"
-        x="650"
+        x="600"
         y="240"
-        width="200"
         height="60"
+        width="200"
         text="🏃 Correr de volta
 (Fugir dos uivos)"
         color="#ff6b6b"
