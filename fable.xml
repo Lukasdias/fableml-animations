@@ -10,47 +10,50 @@
   <property name="capitulo" default="1" />
 
   <page id="escolha" bg_color="#2c1810" bg_music="osts-fear.mp3">
-    <!-- Interface do jogo -->
+    <!-- Interface do jogo - Topo centralizado -->
     <agent
       id="titulo"
-      x="300"
-      y="30"
+      x="400"
+      y="25"
       text="🌙 A Floresta Sombria - Capítulo $capitulo"
       color="#ffffff"
       font-size="20"
     />
 
-    <!-- Status do jogador -->
+    <!-- Status do jogador - Abaixo do título -->
     <agent
       id="status"
-      x="50"
-      y="60"
+      x="400"
+      y="55"
       text="❤️ Vida: $vida | 🛡️ Coragem: $coragem"
       color="#ffff00"
       font-size="14"
     />
 
-    <!-- Narrativa inicial -->
+    <!-- Narrativa inicial - Área central superior -->
     <fab-if when="not $escolha_feita">
       <agent
         id="cenario"
-        x="300"
+        x="400"
         y="120"
-        width="500"
-        height="100"
+        width="750"
+        height="80"
         text="Você caminha pela floresta sombria quando encontra uma bifurcação misteriosa. À esquerda, um caminho illuminado pela lua. À direita, um túnel escuro e úmido. Atrás de você, ouve-se uivos distantes..."
         color="#cccccc"
         font-size="16"
       />
 
-      <!-- Opções de escolha -->
+      <!-- Opções de escolha - Distribuídas horizontalmente -->
       <agent
         id="esquerda"
-        x="200"
-        y="280"
+        x="150"
+        y="240"
+        width="200"
+        height="60"
         text="🌙 Seguir à esquerda
 (Caminho da Lua)"
         color="#87ceeb"
+        font-size="14"
         animation="hover-grow"
         on_click="set(escolha_feita, true); set(caminho, 'lua')"
       />
@@ -58,21 +61,27 @@
       <agent
         id="direita"
         x="400"
-        y="280"
+        y="240"
+        width="200"
+        height="60"
         text="🕳️ Entrar no túnel
 (Caminho Sombrio)"
         color="#8b4513"
+        font-size="14"
         animation="hover-grow"
         on_click="set(escolha_feita, true); set(caminho, 'sombra')"
       />
 
       <agent
         id="voltar"
-        x="300"
-        y="350"
+        x="650"
+        y="240"
+        width="200"
+        height="60"
         text="🏃 Correr de volta
 (Fugir dos uivos)"
         color="#ff6b6b"
+        font-size="14"
         animation="hover-grow"
         on_click="set(escolha_feita, true); set(caminho, 'fuga')"
       />
@@ -82,10 +91,10 @@
     <fab-if when="$escolha_feita and $caminho = 'lua'">
       <agent
         id="resultado-lua"
-        x="300"
-        y="150"
-        width="500"
-        height="120"
+        x="400"
+        y="140"
+        width="750"
+        height="100"
         text="🌟 Você seguiu o caminho iluminado e encontrou um cristal mágico! Sua coragem aumenta e você se sente renovado. Um druida aparece e o guia em segurança."
         color="#e6e6fa"
         font-size="16"
@@ -94,12 +103,12 @@
 
       <agent
         id="bonus-lua"
-        animation="bounce-in"
-        x="300"
-        y="280"
+        x="400"
+        y="270"
         text="✨ +20 Coragem | +10 Vida"
         color="#00ff00"
         font-size="18"
+        animation="bounce-in"
         on_click="set(coragem, $coragem + 20); set(vida, $vida + 10)"
       />
     </fab-if>
@@ -108,10 +117,10 @@
     <fab-if when="$escolha_feita and $caminho = 'sombra'">
       <agent
         id="resultado-sombra"
-        x="300"
-        y="150"
-        width="500"
-        height="120"
+        x="400"
+        y="140"
+        width="750"
+        height="100"
         text="💀 O túnel estava cheio de armadilhas! Você tropeça e se machuca, mas encontra um tesouro escondido. Sua vida diminui, mas você ganha experiência valiosa."
         color="#cd853f"
         font-size="16"
@@ -120,8 +129,8 @@
 
       <agent
         id="bonus-sombra"
-        x="300"
-        y="280"
+        x="400"
+        y="270"
         text="⚔️ +10 Coragem | -20 Vida"
         color="#ffa500"
         font-size="18"
@@ -134,10 +143,10 @@
     <fab-if when="$escolha_feita and $caminho = 'fuga'">
       <agent
         id="resultado-fuga"
-        x="300"
-        y="150"
-        width="500"
-        height="120"
+        x="400"
+        y="140"
+        width="750"
+        height="100"
         text="🏃 Você correu de volta mas tropeçou! Os uivos se aproximam... Sua coragem diminui, mas você consegue escapar por pouco e encontra uma cabana segura."
         color="#ffa07a"
         font-size="16"
@@ -146,8 +155,8 @@
 
       <agent
         id="bonus-fuga"
-        x="300"
-        y="280"
+        x="400"
+        y="270"
         text="🏠 Lugar Seguro | -10 Coragem"
         color="#ff4500"
         font-size="18"
@@ -156,35 +165,43 @@
       />
     </fab-if>
 
-    <!-- Botões de ação após escolha -->
-    <fab-if when="$escolha_feita">
+    <!-- Botões de ação após escolha - Área inferior -->
+    <fab-if when="$escolha_feita and $vida > 0">
       <agent
         id="proximo-capitulo"
-        x="200"
-        y="400"
+        x="280"
+        y="420"
+        width="180"
+        height="40"
         text="📖 Próximo Capítulo"
         color="#ffffff"
+        font-size="14"
         animation="hover-grow"
         on_click="set(capitulo, $capitulo + 1); set(escolha_feita, false); set(caminho, '')"
       />
 
       <agent
         id="reiniciar"
-        x="400"
-        y="400"
+        x="520"
+        y="420"
+        width="180"
+        height="40"
         text="🔄 Recomeçar História"
         color="#ffffff"
+        font-size="14"
         animation="hover-grow"
         on_click="set(escolha_feita, false); set(caminho, ''); set(vida, 100); set(coragem, 50); set(capitulo, 1)"
       />
     </fab-if>
 
-    <!-- Sistema de Game Over -->
+    <!-- Sistema de Game Over - Centralizado na tela -->
     <fab-if when="$vida <= 0">
       <agent
         id="game-over"
-        x="300"
-        y="250"
+        x="400"
+        y="280"
+        width="600"
+        height="80"
         text="💀 GAME OVER
 Sua jornada terminou aqui..."
         color="#ff0000"
@@ -194,10 +211,13 @@ Sua jornada terminou aqui..."
 
       <agent
         id="restart"
-        x="300"
-        y="350"
+        x="400"
+        y="380"
+        width="250"
+        height="50"
         text="🔄 Começar Nova Jornada"
         color="#ffffff"
+        font-size="16"
         animation="hover-grow"
         on_click="set(vida, 100); set(coragem, 50); set(capitulo, 1); set(escolha_feita, false); set(caminho, '')"
       />
