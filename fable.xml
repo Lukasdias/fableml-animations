@@ -7,6 +7,7 @@
   <property name="caminho" default="" />
   <property name="vida" default="100" />
   <property name="coragem" default="50" />
+
   <property name="capitulo" default="1" />
 
   <page id="escolha" bg_color="#2c1810" bg_music="osts-fear.mp3">
