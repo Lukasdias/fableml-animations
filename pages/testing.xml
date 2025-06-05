@@ -1,4 +1,4 @@
-<page id="testing" bg_color="aqua">
+<page id="testing" bg_color="red">
   <agent
     image="forest-hero-idle.png"
     x="center"
