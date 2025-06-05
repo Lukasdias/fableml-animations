@@ -3,7 +3,7 @@
     id="titulo"
     x="center"
     y="center"
-    video="video"
+    video="video.mp4"
     color="white"
     font-size="24"
   />
