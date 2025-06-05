@@ -3,7 +3,7 @@
     id="titulo"
     x="center"
     y="center"
-    video="cork_texture.jpg"
+    image="cork_texture.jpg"
     color="white"
     font-size="24"
   />
