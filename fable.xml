@@ -5,7 +5,7 @@
   <!-- Variáveis do sistema de escolhas -->
   <property name="escolha_feita" default="false" />
   <property name="caminho" default="" />
-  <property name="vida" default="200" />
+  <property name="vida" default="500" />
   <property name="coragem" default="50" />
 
   <property name="capitulo" default="1" />
