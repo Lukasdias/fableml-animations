@@ -4,6 +4,6 @@
     x="center"
     y="center"
     id="hero"
-    animation="fade-in"
+    animation="spin"
   />
 </page>
