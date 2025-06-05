@@ -1,3 +1,9 @@
 <page id="testing" bg_color="aqua">
-  <agent image="forest-hero-idle.png" x="center" y="center" id="hero" />
+  <agent
+    image="forest-hero-idle.png"
+    x="center"
+    y="center"
+    id="hero"
+    animation="fade-in"
+  />
 </page>
