@@ -1,1 +1,3 @@
-<page id="testing" bg_image="cork_texture.jpg" />
+<page id="testing" bg_color="aqua">
+  <agent id="text" image="cemetery-arrowsign.png" />
+</page>
