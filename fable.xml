@@ -10,6 +10,8 @@
 
   <property name="capitulo" default="1" />
 
+  <testing />
+
   <page id="escolha" bg_color="#2c1810" bg_music="osts-fear.mp3">
     <!-- Interface do jogo - Topo centralizado -->
     <agent
