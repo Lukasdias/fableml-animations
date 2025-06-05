@@ -1,10 +1,1 @@
-<page id="testing" bg_color="black">
-  <agent
-    id="titulo"
-    x="center"
-    y="center"
-    image="cork_texture.jpg"
-    color="white"
-    font-size="24"
-  />
-</page>
+<page id="testing" bg_image="cork_texture.jpg" />
