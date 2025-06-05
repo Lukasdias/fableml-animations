@@ -3,7 +3,7 @@
     id="titulo"
     x="center"
     y="center"
-    text="Página testing"
+    video="videoplayback_1_.mp4"
     color="white"
     font-size="24"
   />
