@@ -5,5 +5,6 @@
     width="100"
     x="center"
     y="center"
+    animation="spin"
   />
 </page>
