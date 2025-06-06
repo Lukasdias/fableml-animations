@@ -4,6 +4,6 @@
     id="hero"
     width="100"
     x="center"
-    animation="bounce-in"
+    y="center"
   />
 </page>
