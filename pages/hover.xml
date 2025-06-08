@@ -146,28 +146,6 @@
     on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Hover Shadow testado!')"
   />
 
-  <agent
-    id="demo-hover-lift"
-    x="440"
-    y="380"
-    text="HOVER LIFT"
-    color="#1e293b"
-    font-size="16"
-    animation="hover-lift"
-    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Hover Lift testado!')"
-  />
-
-  <agent
-    id="demo-hover-sink"
-    x="600"
-    y="380"
-    text="HOVER SINK"
-    color="#1e293b"
-    font-size="16"
-    animation="hover-sink"
-    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Hover Sink testado!')"
-  />
-
   <!-- Navegação -->
   <agent
     id="feedback-hover"
