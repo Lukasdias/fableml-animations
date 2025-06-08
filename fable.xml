@@ -301,7 +301,6 @@
       color="#ffffff"
       width="180"
       height="60"
-      bg_color="#3b82f6"
       animation="hover-grow"
     />
 
@@ -315,7 +314,6 @@
       color="#ffffff"
       width="180"
       height="60"
-      bg_color="#10b981"
       animation="hover-bounce"
     />
 
@@ -374,7 +372,6 @@
       color="#ffffff"
       width="200"
       height="50"
-      bg_color="#f59e0b"
       animation="hover-grow"
       on_click="goToPage('clique')"
     />
@@ -388,7 +385,6 @@
       color="#ffffff"
       width="150"
       height="50"
-      bg_color="#6b7280"
       animation="hover-grow"
       on_click="goToPage('continuas')"
     />
@@ -440,7 +436,6 @@
       color="#ffffff"
       width="180"
       height="60"
-      bg_color="#ec4899"
       animation="click-bounce"
       on_click="set(contador_cliques, $contador_cliques + 1)"
     />
@@ -482,7 +477,6 @@
       color="#ffffff"
       width="200"
       height="50"
-      bg_color="#be185d"
       animation="hover-grow"
       on_click="goToPage('especiais')"
     />
@@ -496,7 +490,6 @@
       color="#ffffff"
       width="150"
       height="50"
-      bg_color="#6b7280"
       animation="hover-grow"
       on_click="goToPage('hover')"
     />
@@ -535,7 +528,6 @@
       color="#ffffff"
       width="200"
       height="60"
-      bg_color="#8b5cf6"
       animation="slide-reveal"
     />
 
@@ -596,7 +588,6 @@
       color="#ffffff"
       width="200"
       height="50"
-      bg_color="#7c3aed"
       animation="hover-bounce"
       on_click="set(contador_cliques, 0); goToPage('entrada')"
     />
