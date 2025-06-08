@@ -6,6 +6,6 @@
     height="100"
     x="center"
     y="center"
-    animation="levitate hover-glow click-ripple"
+    animation="bounce-in"
   />
 </page>
