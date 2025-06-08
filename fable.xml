@@ -6,18 +6,16 @@
 
   <!-- === PÁGINA PRINCIPAL - MENU === -->
   <menu />
-  <entrada />
-  <continuas />
-  <hover />
-  <clique />
-  <especiais />
   <!-- === PÁGINA: ANIMAÇÕES DE ENTRADA === -->
-
+  <entrada />
   <!-- === PÁGINA: ANIMAÇÕES CONTÍNUAS === -->
-
+  <continuas />
   <!-- === PÁGINA: ANIMAÇÕES DE HOVER === -->
-
+  <hover />
   <!-- === PÁGINA: ANIMAÇÕES DE CLIQUE === -->
 
+  <clique />
   <!-- === PÁGINA: ANIMAÇÕES ESPECIAIS === -->
+
+  <especiais />
 </fable>
