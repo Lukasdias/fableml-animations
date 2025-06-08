@@ -1,609 +1,815 @@
 <fable>
   <config font-family="Poppins" />
+  <property name="pontuacao" default="0" />
 
-  <property name="pagina_atual" default="'entrada'" />
-  <property name="animacao_testada" default="''" />
-  <property name="contador_cliques" default="0" />
-
-  <!-- PÁGINA 1: ANIMAÇÕES DE ENTRADA -->
-  <page id="entrada" bg_color="#e0f2fe" bg_music="osts-stage.mp3">
+  <!-- 🎬 PÁGINA 1: ANIMAÇÕES DE ENTRADA -->
+  <page id="entrada" bg_color="#e3f2fd">
     <agent
       id="titulo"
-      x="200"
-      y="80"
-      text="🎭 Teatro das Animações Mágicas"
-      font-size="32"
-      color="#0369a1"
-      animation="fade-in"
-    />
-
-    <agent
-      id="subtitulo"
-      x="250"
-      y="140"
-      text="Bem-vindos ao espetáculo das animações!"
-      font-size="18"
-      color="#0284c7"
-      animation="slide-down"
-    />
-
-    <!-- Demonstração das animações de entrada -->
-    <agent
-      id="personagem1"
-      x="110"
-      y="210"
-      image="forest-hero-idle.png"
-      width="80"
-      height="80"
-      animation="slide-up"
-    />
-
-    <agent
-      id="personagem2"
-      x="310"
-      y="210"
-      image="desert-jones.png"
-      width="80"
-      height="80"
-      animation="slide-left"
-    />
-
-    <agent
-      id="personagem3"
-      x="510"
-      y="210"
-      image="snow-snowman.png"
-      width="80"
-      height="80"
-      animation="slide-right"
-    />
-
-    <agent
-      id="personagem4"
-      x="710"
-      y="210"
-      image="tech-acid-1.png"
-      width="80"
-      height="80"
-      animation="zoom-in"
-    />
-
-    <agent
-      id="mago"
       x="350"
-      y="320"
-      image="forest-mushroom.png"
-      width="100"
-      height="100"
-      animation="bounce-in"
+      y="30"
+      text="🎬 Animações de Entrada"
+      font-size="24"
+      color="#1976d2"
     />
-
     <agent
-      id="cristal"
-      x="370"
-      y="450"
-      image="tech-saw.png"
-      width="60"
-      height="60"
-      animation="flip-in"
-    />
-
-    <agent
-      id="instrucao1"
-      x="150"
-      y="550"
-      text="👆 Observe como cada personagem aparece com animação diferente!"
+      id="desc"
+      x="350"
+      y="70"
+      text="Navegue entre as páginas para ver as animações!"
       font-size="16"
-      color="#075985"
+      color="#424242"
+    />
+
+    <!-- Linha 1: Fades -->
+    <agent
+      id="fade"
+      x="50"
+      y="120"
+      text="fade-in"
+      animation="fade-in"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="fade-up"
+      x="150"
+      y="120"
+      text="fade-in-up"
+      animation="fade-in-up"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="fade-down"
+      x="250"
+      y="120"
+      text="fade-in-down"
+      animation="fade-in-down"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="fade-left"
+      x="350"
+      y="120"
+      text="fade-in-left"
+      animation="fade-in-left"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="fade-right"
+      x="450"
+      y="120"
+      text="fade-in-right"
+      animation="fade-in-right"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+
+    <!-- Linha 2: Slides -->
+    <agent
+      id="slide-up"
+      x="50"
+      y="170"
+      text="slide-up"
+      animation="slide-up"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="slide-down"
+      x="150"
+      y="170"
+      text="slide-down"
+      animation="slide-down"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="slide-left"
+      x="250"
+      y="170"
+      text="slide-left"
+      animation="slide-left"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="slide-right"
+      x="350"
+      y="170"
+      text="slide-right"
+      animation="slide-right"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="slide-reveal"
+      x="450"
+      y="170"
+      text="slide-reveal"
+      animation="slide-reveal"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+
+    <!-- Linha 3: Zoom e Bounces -->
+    <agent
+      id="zoom"
+      x="50"
+      y="220"
+      text="zoom-in"
+      animation="zoom-in"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="bounce"
+      x="150"
+      y="220"
+      text="bounce-in"
+      animation="bounce-in"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="scale"
+      x="250"
+      y="220"
+      text="scale-in"
+      animation="scale-in"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="rotate"
+      x="350"
+      y="220"
+      text="rotate-in"
+      animation="rotate-in"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="swing"
+      x="450"
+      y="220"
+      text="swing-in"
+      animation="swing-in"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+
+    <!-- Linha 4: Especiais -->
+    <agent
+      id="flip"
+      x="250"
+      y="270"
+      text="flip-in"
+      animation="flip-in"
+      color="#fff"
+      width="90"
+      height="40"
     />
 
     <agent
-      id="btn_continuas"
-      x="250"
-      y="620"
-      text="🎪 Ver Animações Contínuas"
-      font-size="18"
-      color="#ffffff"
-      width="300"
-      height="50"
-      bg_color="#0369a1"
-      animation="hover-grow"
+      id="proximo1"
+      x="350"
+      y="350"
+      text="➡️ Contínuas"
       on_click="goToPage('continuas')"
+      color="#fff"
+      width="120"
+      height="40"
+      animation="hover-grow"
     />
   </page>
 
-  <!-- PÁGINA 2: ANIMAÇÕES CONTÍNUAS -->
-  <page id="continuas" bg_color="#f0fdf4" bg_music="osts-retro-forest.mp3">
+  <!-- 🔄 PÁGINA 2: ANIMAÇÕES CONTÍNUAS -->
+  <page id="continuas" bg_color="#f3e5f5">
     <agent
       id="titulo2"
-      x="220"
-      y="60"
-      text="🌟 Animações Contínuas Encantadas"
-      font-size="28"
-      color="#166534"
-      animation="fade-in"
-    />
-
-    <!-- Pulse - Coração mágico -->
-    <agent
-      id="coracao"
-      x="130"
-      y="150"
-      text="💖"
-      font-size="48"
-      animation="pulse"
+      x="350"
+      y="30"
+      text="🔄 Animações Contínuas"
+      font-size="24"
+      color="#7b1fa2"
     />
     <agent
-      id="label_pulse"
-      x="135"
-      y="210"
-      text="Pulse"
-      font-size="14"
-      color="#166534"
-    />
-
-    <!-- Glow - Estrela brilhante (corrigido para box-shadow) -->
-    <agent
-      id="estrela"
-      x="280"
-      y="150"
-      text="⭐"
-      font-size="48"
-      animation="glow"
-    />
-    <agent
-      id="label_glow"
-      x="240"
-      y="210"
-      text="Glow (Box-Shadow)"
-      font-size="14"
-      color="#166534"
-    />
-
-    <!-- Float - Fantasma flutuando -->
-    <agent
-      id="fantasma"
-      x="430"
-      y="150"
-      text="👻"
-      font-size="48"
-      animation="float"
-    />
-    <agent
-      id="label_float"
-      x="435"
-      y="210"
-      text="Float"
-      font-size="14"
-      color="#166534"
-    />
-
-    <!-- Spin - Engrenagem girando -->
-    <agent
-      id="engrenagem"
-      x="580"
-      y="150"
-      text="⚙️"
-      font-size="48"
-      animation="spin"
-    />
-    <agent
-      id="label_spin"
-      x="590"
-      y="210"
-      text="Spin"
-      font-size="14"
-      color="#166534"
-    />
-
-    <!-- Wiggle - Folha balançando -->
-    <agent
-      id="folha"
-      x="730"
-      y="150"
-      text="🍃"
-      font-size="48"
-      animation="wiggle"
-    />
-    <agent
-      id="label_wiggle"
-      x="720"
-      y="210"
-      text="Wiggle"
-      font-size="14"
-      color="#166534"
-    />
-
-    <!-- Heartbeat - Coração batendo -->
-    <agent
-      id="coracao2"
-      x="370"
-      y="280"
-      text="❤️"
-      font-size="60"
-      animation="heartbeat"
-    />
-    <agent
-      id="label_heartbeat"
-      x="380"
-      y="350"
-      text="Heartbeat"
-      font-size="14"
-      color="#166534"
-    />
-
-    <agent
-      id="explicacao"
-      x="180"
-      y="420"
-      text="🔄 Estas animações rodam infinitamente com transições suaves!"
+      id="desc2"
+      x="350"
+      y="70"
+      text="Estas animações ficam rodando infinitamente!"
       font-size="16"
-      color="#365314"
+      color="#424242"
     />
 
+    <!-- Linha 1: Básicas -->
     <agent
-      id="btn_hover"
-      x="150"
-      y="480"
-      text="🖱️ Testar Hover"
-      font-size="18"
-      color="#ffffff"
-      width="200"
-      height="50"
-      bg_color="#16a34a"
-      animation="hover-bounce"
-      on_click="goToPage('hover')"
-    />
-
-    <agent
-      id="btn_voltar1"
-      x="450"
-      y="480"
-      text="⬅️ Voltar"
-      font-size="18"
-      color="#ffffff"
-      width="150"
-      height="50"
-      bg_color="#6b7280"
-      animation="hover-grow"
-      on_click="goToPage('entrada')"
-    />
-  </page>
-
-  <!-- PÁGINA 3: ANIMAÇÕES DE HOVER -->
-  <page id="hover" bg_color="#fef3c7" bg_music="osts-stage.mp3">
-    <agent
-      id="titulo3"
-      x="240"
-      y="60"
-      text="🖱️ Animações de Hover Interativas"
-      font-size="28"
-      color="#92400e"
-      animation="fade-in"
-    />
-
-    <agent
-      id="instrucao3"
-      x="260"
+      id="pulse"
+      x="50"
       y="120"
-      text="Passe o mouse sobre os elementos abaixo:"
-      font-size="18"
-      color="#a16207"
+      text="pulse"
+      animation="pulse"
+      color="#fff"
+      width="80"
+      height="40"
     />
-
-    <!-- Hover Grow - Botão que cresce -->
     <agent
-      id="btn_grow"
-      x="110"
-      y="180"
-      text="🟦 Hover Grow"
-      font-size="16"
-      color="#ffffff"
-      width="180"
-      height="60"
-      animation="hover-grow"
-    />
-
-    <!-- Hover Bounce - Elemento que salta -->
-    <agent
-      id="elemento_bounce"
-      x="510"
-      y="180"
-      text="🦘 Hover Bounce"
-      font-size="16"
-      color="#ffffff"
-      width="180"
-      height="60"
-      animation="hover-bounce"
-    />
-
-    <!-- Hover Tilt - Elemento que inclina -->
-    <agent
-      id="carta"
+      id="glow"
       x="140"
-      y="280"
-      image="desert-cactus.png"
-      width="120"
-      height="120"
-      animation="hover-tilt"
+      y="120"
+      text="glow"
+      animation="glow"
+      color="#fff"
+      width="80"
+      height="40"
     />
     <agent
-      id="label_tilt"
-      x="170"
-      y="420"
-      text="Hover Tilt"
-      font-size="14"
-      color="#92400e"
-    />
-
-    <!-- Hover Glow - Elemento que brilha (corrigido para box-shadow) -->
-    <agent
-      id="gema"
-      x="560"
-      y="280"
-      text="💎"
-      font-size="80"
-      animation="hover-glow"
+      id="float"
+      x="230"
+      y="120"
+      text="float"
+      animation="float"
+      color="#fff"
+      width="80"
+      height="40"
     />
     <agent
-      id="label_glow_hover"
-      x="520"
-      y="420"
-      text="Hover Glow (Box-Shadow)"
-      font-size="14"
-      color="#92400e"
-    />
-
-    <agent
-      id="dica_hover"
-      x="170"
-      y="480"
-      text="✨ Todas as animações de hover usam propriedades otimizadas!"
-      font-size="16"
-      color="#a16207"
-    />
-
-    <agent
-      id="btn_clique"
-      x="150"
-      y="540"
-      text="👆 Testar Clique"
-      font-size="18"
-      color="#ffffff"
-      width="200"
-      height="50"
-      animation="hover-grow"
-      on_click="goToPage('clique')"
-    />
-
-    <agent
-      id="btn_voltar2"
-      x="450"
-      y="540"
-      text="⬅️ Voltar"
-      font-size="18"
-      color="#ffffff"
-      width="150"
-      height="50"
-      animation="hover-grow"
-      on_click="goToPage('continuas')"
-    />
-  </page>
-
-  <!-- PÁGINA 4: ANIMAÇÕES DE CLIQUE -->
-  <page id="clique" bg_color="#fce7f3" bg_music="osts-fear.mp3">
-    <agent
-      id="titulo4"
-      x="240"
-      y="60"
-      text="👆 Animações de Clique Responsivas"
-      font-size="28"
-      color="#be185d"
-      animation="fade-in"
-    />
-
-    <agent
-      id="contador"
+      id="spin"
       x="320"
       y="120"
-      text="Cliques totais: $contador_cliques"
-      font-size="18"
-      color="#c2185b"
+      text="spin"
+      animation="spin"
+      color="#fff"
+      width="80"
+      height="40"
+    />
+    <agent
+      id="wiggle"
+      x="410"
+      y="120"
+      text="wiggle"
+      animation="wiggle"
+      color="#fff"
+      width="80"
+      height="40"
+    />
+    <agent
+      id="heartbeat"
+      x="500"
+      y="120"
+      text="heartbeat"
+      animation="heartbeat"
+      color="#fff"
+      width="80"
+      height="40"
     />
 
-    <!-- Click Scale - Botão que diminui -->
+    <!-- Linha 2: Novas -->
     <agent
-      id="btn_scale"
-      x="110"
-      y="180"
-      text="🔻 Click Scale"
-      font-size="16"
-      color="#ffffff"
-      width="180"
-      height="60"
-      bg_color="#e11d48"
-      animation="click-scale"
-      on_click="set(contador_cliques, $contador_cliques + 1)"
+      id="breathing"
+      x="50"
+      y="170"
+      text="breathing"
+      animation="breathing"
+      color="#fff"
+      width="80"
+      height="40"
+    />
+    <agent
+      id="swing-cont"
+      x="140"
+      y="170"
+      text="swing"
+      animation="swing"
+      color="#fff"
+      width="80"
+      height="40"
+    />
+    <agent
+      id="wobble-cont"
+      x="230"
+      y="170"
+      text="wobble"
+      animation="wobble"
+      color="#fff"
+      width="80"
+      height="40"
+    />
+    <agent
+      id="rubber"
+      x="320"
+      y="170"
+      text="rubber-band"
+      animation="rubber-band"
+      color="#fff"
+      width="80"
+      height="40"
+    />
+    <agent
+      id="jello"
+      x="410"
+      y="170"
+      text="jello"
+      animation="jello"
+      color="#fff"
+      width="80"
+      height="40"
     />
 
-    <!-- Click Bounce - Botão que quica -->
+    <!-- Linha 3: Especiais -->
     <agent
-      id="btn_bounce_click"
-      x="510"
-      y="180"
-      text="🎾 Click Bounce"
-      font-size="16"
-      color="#ffffff"
-      width="180"
-      height="60"
-      animation="click-bounce"
-      on_click="set(contador_cliques, $contador_cliques + 1)"
+      id="bounce-loop"
+      x="140"
+      y="220"
+      text="bounce-loop"
+      animation="bounce-loop"
+      color="#fff"
+      width="80"
+      height="40"
+    />
+    <agent
+      id="fade-pulse"
+      x="230"
+      y="220"
+      text="fade-pulse"
+      animation="fade-pulse"
+      color="#fff"
+      width="80"
+      height="40"
+    />
+    <agent
+      id="zoom-pulse"
+      x="320"
+      y="220"
+      text="zoom-pulse"
+      animation="zoom-pulse"
+      color="#fff"
+      width="80"
+      height="40"
+    />
+    <agent
+      id="morphing"
+      x="410"
+      y="220"
+      text="morphing"
+      animation="morphing"
+      color="#fff"
+      width="80"
+      height="40"
     />
 
-    <!-- Click Shake - Elemento que balança -->
     <agent
-      id="sino"
-      x="360"
-      y="280"
-      text="🔔"
-      font-size="80"
-      animation="click-shake"
-      on_click="set(contador_cliques, $contador_cliques + 1)"
-    />
-    <agent
-      id="label_shake"
-      x="370"
-      y="370"
-      text="Click Shake"
-      font-size="14"
-      color="#be185d"
-    />
-
-    <agent
-      id="explicacao_clique"
-      x="240"
-      y="430"
-      text="👆 Clique nos elementos para ver as animações de feedback!"
-      font-size="16"
-      color="#c2185b"
-    />
-
-    <agent
-      id="btn_especiais"
-      x="150"
-      y="500"
-      text="✨ Ver Especiais"
-      font-size="18"
-      color="#ffffff"
-      width="200"
-      height="50"
+      id="anterior1"
+      x="200"
+      y="350"
+      text="⬅️ Entrada"
+      on_click="goToPage('entrada')"
+      color="#fff"
+      width="100"
+      height="40"
       animation="hover-grow"
-      on_click="goToPage('especiais')"
     />
-
     <agent
-      id="btn_voltar3"
-      x="450"
-      y="500"
-      text="⬅️ Voltar"
-      font-size="18"
-      color="#ffffff"
-      width="150"
-      height="50"
-      animation="hover-grow"
+      id="proximo2"
+      x="400"
+      y="350"
+      text="➡️ Hover"
       on_click="goToPage('hover')"
+      color="#fff"
+      width="100"
+      height="40"
+      animation="hover-grow"
     />
   </page>
 
-  <!-- PÁGINA 5: ANIMAÇÕES ESPECIAIS -->
-  <page id="especiais" bg_color="#f3e8ff" bg_music="osts-retro-forest.mp3">
+  <!-- 👆 PÁGINA 3: ANIMAÇÕES DE HOVER -->
+  <page id="hover" bg_color="#e8f5e8">
+    <agent
+      id="titulo3"
+      x="350"
+      y="30"
+      text="👆 Animações de Hover"
+      font-size="24"
+      color="#2e7d32"
+    />
+    <agent
+      id="desc3"
+      x="350"
+      y="70"
+      text="Passe o mouse sobre os elementos!"
+      font-size="16"
+      color="#424242"
+    />
+
+    <!-- Linha 1: Básicas -->
+    <agent
+      id="hover-grow"
+      x="50"
+      y="120"
+      text="hover-grow"
+      animation="hover-grow"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="hover-bounce"
+      x="150"
+      y="120"
+      text="hover-bounce"
+      animation="hover-bounce"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="hover-tilt"
+      x="250"
+      y="120"
+      text="hover-tilt"
+      animation="hover-tilt"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="hover-glow"
+      x="350"
+      y="120"
+      text="hover-glow"
+      animation="hover-glow"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+
+    <!-- Linha 2: Escalas -->
+    <agent
+      id="hover-scale-up"
+      x="50"
+      y="170"
+      text="hover-scale-up"
+      animation="hover-scale-up"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="hover-scale-down"
+      x="150"
+      y="170"
+      text="hover-scale-down"
+      animation="hover-scale-down"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="hover-float"
+      x="250"
+      y="170"
+      text="hover-float"
+      animation="hover-float"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="hover-shadow"
+      x="350"
+      y="170"
+      text="hover-shadow"
+      animation="hover-shadow"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+
+    <!-- Linha 3: Rotações -->
+    <agent
+      id="hover-rotate-left"
+      x="100"
+      y="220"
+      text="hover-rotate-left"
+      animation="hover-rotate-left"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="hover-rotate-right"
+      x="200"
+      y="220"
+      text="hover-rotate-right"
+      animation="hover-rotate-right"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="hover-pulse"
+      x="300"
+      y="220"
+      text="hover-pulse"
+      animation="hover-pulse"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+
+    <agent
+      id="anterior2"
+      x="200"
+      y="350"
+      text="⬅️ Contínuas"
+      on_click="goToPage('continuas')"
+      color="#fff"
+      width="100"
+      height="40"
+      animation="hover-grow"
+    />
+    <agent
+      id="proximo3"
+      x="400"
+      y="350"
+      text="➡️ Clique"
+      on_click="goToPage('clique')"
+      color="#fff"
+      width="100"
+      height="40"
+      animation="hover-grow"
+    />
+  </page>
+
+  <!-- 👆 PÁGINA 4: ANIMAÇÕES DE CLIQUE -->
+  <page id="clique" bg_color="#fff3e0">
+    <agent
+      id="titulo4"
+      x="350"
+      y="30"
+      text="👆 Animações de Clique"
+      font-size="24"
+      color="#f57c00"
+    />
+    <agent
+      id="desc4"
+      x="350"
+      y="70"
+      text="Clique nos elementos para ver as animações!"
+      font-size="16"
+      color="#424242"
+    />
+    <agent
+      id="pontos"
+      x="350"
+      y="100"
+      text="Pontos: $pontuacao"
+      font-size="18"
+      color="#e65100"
+    />
+
+    <!-- Linha 1: Básicas -->
+    <agent
+      id="click-scale"
+      x="50"
+      y="140"
+      text="click-scale"
+      animation="click-scale"
+      on_click="set(pontuacao, $pontuacao + 1)"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="click-bounce"
+      x="150"
+      y="140"
+      text="click-bounce"
+      animation="click-bounce"
+      on_click="set(pontuacao, $pontuacao + 1)"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="click-shake"
+      x="250"
+      y="140"
+      text="click-shake"
+      animation="click-shake"
+      on_click="set(pontuacao, $pontuacao + 1)"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="click-shrink"
+      x="350"
+      y="140"
+      text="click-shrink"
+      animation="click-shrink"
+      on_click="set(pontuacao, $pontuacao + 1)"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+
+    <!-- Linha 2: Avançadas -->
+    <agent
+      id="click-rotate"
+      x="50"
+      y="190"
+      text="click-rotate"
+      animation="click-rotate"
+      on_click="set(pontuacao, $pontuacao + 1)"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="click-pulse"
+      x="150"
+      y="190"
+      text="click-pulse"
+      animation="click-pulse"
+      on_click="set(pontuacao, $pontuacao + 1)"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="click-jiggle"
+      x="250"
+      y="190"
+      text="click-jiggle"
+      animation="click-jiggle"
+      on_click="set(pontuacao, $pontuacao + 1)"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+    <agent
+      id="click-squish"
+      x="350"
+      y="190"
+      text="click-squish"
+      animation="click-squish"
+      on_click="set(pontuacao, $pontuacao + 1)"
+      color="#fff"
+      width="90"
+      height="40"
+    />
+
+    <agent
+      id="reset"
+      x="200"
+      y="250"
+      text="🔄 Reset Pontos"
+      on_click="set(pontuacao, 0)"
+      color="#fff"
+      width="120"
+      height="40"
+      animation="hover-glow"
+    />
+
+    <agent
+      id="anterior3"
+      x="200"
+      y="320"
+      text="⬅️ Hover"
+      on_click="goToPage('hover')"
+      color="#fff"
+      width="100"
+      height="40"
+      animation="hover-grow"
+    />
+    <agent
+      id="proximo4"
+      x="400"
+      y="320"
+      text="➡️ Especiais"
+      on_click="goToPage('especiais')"
+      color="#fff"
+      width="100"
+      height="40"
+      animation="hover-grow"
+    />
+  </page>
+
+  <!-- ✨ PÁGINA 5: ANIMAÇÕES ESPECIAIS -->
+  <page id="especiais" bg_color="#fce4ec">
     <agent
       id="titulo5"
-      x="260"
-      y="60"
-      text="✨ Animações Especiais Avançadas"
-      font-size="28"
-      color="#7c3aed"
-      animation="fade-in"
+      x="350"
+      y="30"
+      text="✨ Animações Especiais"
+      font-size="24"
+      color="#c2185b"
+    />
+    <agent
+      id="desc5"
+      x="350"
+      y="70"
+      text="Demonstrações de efeitos únicos!"
+      font-size="16"
+      color="#424242"
     />
 
-    <!-- Typewriter - Texto digitando (corrigido para opacity) -->
+    <!-- Linha 1: Especiais -->
     <agent
-      id="texto_typewriter"
-      x="200"
-      y="140"
-      text="📝 Este texto aparece como máquina de escrever..."
-      font-size="18"
-      color="#6d28d9"
-      animation="typewriter"
-    />
-
-    <!-- Slide Reveal - Elemento revelando (corrigido para transform) -->
-    <agent
-      id="elemento_reveal"
+      id="typewriter"
       x="100"
-      y="200"
-      text="🎭 Slide Reveal"
-      font-size="16"
-      color="#ffffff"
-      width="200"
-      height="60"
-      animation="slide-reveal"
-    />
-
-    <!-- Morphing - Forma que muda -->
-    <agent
-      id="forma_morphing"
-      x="570"
-      y="200"
-      text="🟪"
-      font-size="60"
-      animation="morphing"
-    />
-    <agent
-      id="label_morphing"
-      x="580"
-      y="280"
-      text="Morphing"
-      font-size="14"
-      color="#7c3aed"
-    />
-
-    <!-- Glitch - Efeito de falha (corrigido sem filter) -->
-    <agent
-      id="elemento_glitch"
-      x="280"
-      y="340"
-      text="👾 GLITCH EFFECT"
-      font-size="20"
-      color="#dc2626"
-      animation="glitch"
-    />
-
-    <agent
-      id="explicacao_especiais"
-      x="200"
-      y="400"
-      text="🔬 Animações especiais usam técnicas avançadas otimizadas!"
-      font-size="16"
-      color="#7c3aed"
-    />
-
-    <agent
-      id="resultado_titulo"
-      x="180"
-      y="450"
-      text="🎉 TODAS AS ANIMAÇÕES TESTADAS COM SUCESSO!"
-      font-size="20"
-      color="#059669"
-      animation="bounce-in"
-    />
-
-    <agent
-      id="btn_reiniciar"
-      x="150"
-      y="520"
-      text="🔄 Reiniciar Tour"
-      font-size="18"
-      color="#ffffff"
-      width="200"
-      height="50"
-      animation="hover-bounce"
-      on_click="set(contador_cliques, 0); goToPage('entrada')"
-    />
-
-    <agent
-      id="btn_voltar4"
-      x="450"
-      y="520"
-      text="⬅️ Voltar"
-      font-size="18"
-      color="#ffffff"
+      y="120"
+      text="Efeito typewriter..."
+      animation="typewriter"
+      color="#fff"
       width="150"
-      height="50"
-      bg_color="#6b7280"
+      height="40"
+    />
+    <agent
+      id="glitch"
+      x="300"
+      y="120"
+      text="glitch"
+      animation="glitch"
+      color="#fff"
+      width="100"
+      height="40"
+    />
+
+    <!-- Combinações -->
+    <agent
+      id="combo1"
+      x="100"
+      y="180"
+      text="Fade + Hover"
+      animation="fade-in hover-glow"
+      color="#fff"
+      width="120"
+      height="40"
+    />
+    <agent
+      id="combo2"
+      x="250"
+      y="180"
+      text="Bounce + Click"
+      animation="bounce-in click-pulse"
+      on_click="set(pontuacao, $pontuacao + 5)"
+      color="#fff"
+      width="120"
+      height="40"
+    />
+    <agent
+      id="combo3"
+      x="400"
+      y="180"
+      text="Spin + Hover"
+      animation="spin hover-scale-up"
+      color="#fff"
+      width="120"
+      height="40"
+    />
+
+    <!-- Elementos com imagens (se disponível) -->
+    <agent
+      id="img-animado"
+      x="200"
+      y="240"
+      image="forest-hero-idle.png"
+      animation="bounce-loop hover-glow"
+      width="80"
+      height="80"
+    />
+
+    <agent
+      id="voltar"
+      x="300"
+      y="350"
+      text="🏠 Voltar ao Início"
+      on_click="goToPage('entrada')"
+      color="#fff"
+      width="150"
+      height="40"
       animation="hover-grow"
-      on_click="goToPage('clique')"
     />
   </page>
 </fable>
