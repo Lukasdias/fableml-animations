@@ -105,7 +105,7 @@
     <agent
       id="instrucoes"
       x="center"
-      y="550"
+      y="400"
       text="💡 Clique nas categorias acima para explorar as animações"
       color="#334155"
       font-size="16"
@@ -114,7 +114,7 @@
     <agent
       id="nota"
       x="center"
-      y="580"
+      y="550"
       text="Cada categoria contém exemplos interativos e comparações visuais"
       color="#64748b"
       font-size="12"
