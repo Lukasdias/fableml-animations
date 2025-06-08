@@ -1,6 +1,6 @@
 <page id="testing" bg_color="red">
   <agent
-    image="forest-hero-idle.png"
+    image="re9.png"
     id="hero"
     width="400"
     x="center"
