@@ -1,3 +1,190 @@
-<page id="especiais" bg_color="black">
-  <agent id="titulo" x="center" y="center" text="Página especiais" color="white" font-size="24" />
+<page id="especiais" bg_color="#f1f5f9">
+  <agent
+    id="titulo-especiais"
+    x="center"
+    y="50"
+    text="✨ ANIMAÇÕES ESPECIAIS"
+    color="#1e293b"
+    font-size="24"
+  />
+
+  <agent
+    id="desc-especiais"
+    x="center"
+    y="90"
+    text="Animações únicas e efeitos especiais para situações específicas"
+    color="#475569"
+    font-size="14"
+  />
+
+  <!-- Linha 1: Efeitos únicos -->
+  <agent
+    id="label-unicos"
+    x="center"
+    y="140"
+    text="🎪 EFEITOS ÚNICOS"
+    color="#0f172a"
+    font-size="18"
+  />
+
+  <agent
+    id="demo-typewriter"
+    x="150"
+    y="180"
+    text="TYPEWRITER EFFECT"
+    color="#1e293b"
+    font-size="16"
+    animation="typewriter"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Typewriter executado!')"
+  />
+
+  <agent
+    id="demo-slide-reveal"
+    x="400"
+    y="180"
+    text="SLIDE REVEAL"
+    color="#1e293b"
+    font-size="16"
+    animation="slide-reveal"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Slide Reveal executado!')"
+  />
+
+  <agent
+    id="demo-morphing"
+    x="650"
+    y="180"
+    text="MORPHING"
+    color="#1e293b"
+    font-size="16"
+    animation="morphing"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Morphing ativo!')"
+  />
+
+  <!-- Linha 2: Efeitos dramáticos -->
+  <agent
+    id="label-dramaticos"
+    x="center"
+    y="240"
+    text="🎭 EFEITOS DRAMÁTICOS"
+    color="#0f172a"
+    font-size="18"
+  />
+
+  <agent
+    id="demo-glitch"
+    x="250"
+    y="280"
+    text="GLITCH EFFECT"
+    color="#1e293b"
+    font-size="16"
+    animation="glitch"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Glitch ativo!')"
+  />
+
+  <agent
+    id="demo-swing-in"
+    x="550"
+    y="280"
+    text="SWING IN"
+    color="#1e293b"
+    font-size="16"
+    animation="swing-in"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Swing In executado!')"
+  />
+
+  <!-- Linha 3: Combinações complexas -->
+  <agent
+    id="label-combinacoes"
+    x="center"
+    y="340"
+    text="🎨 COMBINAÇÕES COMPLEXAS"
+    color="#0f172a"
+    font-size="18"
+  />
+
+  <agent
+    id="demo-combo1"
+    x="150"
+    y="380"
+    text="GLOW + HOVER + CLICK"
+    color="#1e293b"
+    font-size="16"
+    animation="glow hover-glow click-pulse"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Combo triplo executado!')"
+  />
+
+  <agent
+    id="demo-combo2"
+    x="400"
+    y="380"
+    text="FADE + BOUNCE + ROTATE"
+    color="#1e293b"
+    font-size="16"
+    animation="fade-in bounce-in click-rotate"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Combo entrada + clique!')"
+  />
+
+  <agent
+    id="demo-combo3"
+    x="650"
+    y="380"
+    text="PULSE + SHADOW + SHAKE"
+    color="#1e293b"
+    font-size="16"
+    animation="pulse hover-shadow click-shake"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Combo completo executado!')"
+  />
+
+  <!-- Navegação -->
+  <agent
+    id="feedback-especiais"
+    x="center"
+    y="450"
+    text="$feedback"
+    color="#7c3aed"
+    font-size="14"
+  />
+
+  <agent
+    id="voltar-clique"
+    x="100"
+    y="500"
+    text="⬅️ CLIQUE"
+    color="#ef4444"
+    font-size="14"
+    animation="hover-glow click-scale"
+    on_click="goToPage('clique')"
+  />
+
+  <agent
+    id="voltar-menu-final"
+    x="700"
+    y="500"
+    text="🏠 MENU PRINCIPAL"
+    color="#10b981"
+    font-size="14"
+    animation="hover-glow click-scale"
+    on_click="goToPage('menu')"
+  />
+
+  <!-- Estatísticas finais -->
+  <agent
+    id="estatisticas"
+    x="center"
+    y="550"
+    text="🎯 Total de cliques nesta sessão: $contador_cliques"
+    color="#64748b"
+    font-size="14"
+  />
+
+  <agent
+    id="reset-contador"
+    x="center"
+    y="580"
+    text="🔄 RESET CONTADOR"
+    color="#ef4444"
+    font-size="12"
+    animation="click-scale hover-glow"
+    on_click="set(contador_cliques, 0); set(feedback, 'Contador resetado!')"
+  />
 </page>
