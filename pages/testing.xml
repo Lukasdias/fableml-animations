@@ -3,7 +3,7 @@
     image="forest-hero-idle.png"
     id="hero"
     width="100"
-    height="200"
+    height="400"
     x="center"
     y="center"
     animation="bounce-in"
