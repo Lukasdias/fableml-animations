@@ -1,3 +1,202 @@
-<page id="hover" bg_color="black">
-  <agent id="titulo" x="center" y="center" text="Página hover" color="white" font-size="24" />
+<page id="hover" bg_color="#fefefe">
+  <agent
+    id="titulo-hover"
+    x="center"
+    y="50"
+    text="🖱️ ANIMAÇÕES DE HOVER"
+    color="#1e293b"
+    font-size="24"
+  />
+
+  <agent
+    id="desc-hover"
+    x="center"
+    y="90"
+    text="Animações que ativam quando o mouse passa sobre o elemento"
+    color="#475569"
+    font-size="14"
+  />
+
+  <!-- Linha 1: Crescimento -->
+  <agent
+    id="label-crescimento"
+    x="center"
+    y="140"
+    text="📈 CRESCIMENTO E ESCALA"
+    color="#0f172a"
+    font-size="18"
+  />
+
+  <agent
+    id="demo-hover-grow"
+    x="150"
+    y="180"
+    text="HOVER GROW"
+    color="#1e293b"
+    font-size="16"
+    animation="hover-grow"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Hover Grow testado!')"
+  />
+
+  <agent
+    id="demo-hover-scale-up"
+    x="350"
+    y="180"
+    text="HOVER SCALE UP"
+    color="#1e293b"
+    font-size="16"
+    animation="hover-scale-up"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Hover Scale Up testado!')"
+  />
+
+  <agent
+    id="demo-hover-scale-down"
+    x="550"
+    y="180"
+    text="HOVER SCALE DOWN"
+    color="#1e293b"
+    font-size="16"
+    animation="hover-scale-down"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Hover Scale Down testado!')"
+  />
+
+  <!-- Linha 2: Movimento -->
+  <agent
+    id="label-movimento"
+    x="center"
+    y="240"
+    text="🎭 MOVIMENTO E ROTAÇÃO"
+    color="#0f172a"
+    font-size="18"
+  />
+
+  <agent
+    id="demo-hover-bounce"
+    x="120"
+    y="280"
+    text="HOVER BOUNCE"
+    color="#1e293b"
+    font-size="16"
+    animation="hover-bounce"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Hover Bounce testado!')"
+  />
+
+  <agent
+    id="demo-hover-tilt"
+    x="280"
+    y="280"
+    text="HOVER TILT"
+    color="#1e293b"
+    font-size="16"
+    animation="hover-tilt"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Hover Tilt testado!')"
+  />
+
+  <agent
+    id="demo-hover-rotate-left"
+    x="440"
+    y="280"
+    text="HOVER ROTATE LEFT"
+    color="#1e293b"
+    font-size="16"
+    animation="hover-rotate-left"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Hover Rotate Left testado!')"
+  />
+
+  <agent
+    id="demo-hover-rotate-right"
+    x="600"
+    y="280"
+    text="HOVER ROTATE RIGHT"
+    color="#1e293b"
+    font-size="16"
+    animation="hover-rotate-right"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Hover Rotate Right testado!')"
+  />
+
+  <!-- Linha 3: Efeitos visuais -->
+  <agent
+    id="label-efeitos"
+    x="center"
+    y="340"
+    text="✨ EFEITOS VISUAIS"
+    color="#0f172a"
+    font-size="18"
+  />
+
+  <agent
+    id="demo-hover-glow"
+    x="120"
+    y="380"
+    text="HOVER GLOW"
+    color="#1e293b"
+    font-size="16"
+    animation="hover-glow"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Hover Glow testado!')"
+  />
+
+  <agent
+    id="demo-hover-shadow"
+    x="280"
+    y="380"
+    text="HOVER SHADOW"
+    color="#1e293b"
+    font-size="16"
+    animation="hover-shadow"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Hover Shadow testado!')"
+  />
+
+  <agent
+    id="demo-hover-lift"
+    x="440"
+    y="380"
+    text="HOVER LIFT"
+    color="#1e293b"
+    font-size="16"
+    animation="hover-lift"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Hover Lift testado!')"
+  />
+
+  <agent
+    id="demo-hover-sink"
+    x="600"
+    y="380"
+    text="HOVER SINK"
+    color="#1e293b"
+    font-size="16"
+    animation="hover-sink"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Hover Sink testado!')"
+  />
+
+  <!-- Navegação -->
+  <agent
+    id="feedback-hover"
+    x="center"
+    y="450"
+    text="$feedback"
+    color="#7c3aed"
+    font-size="14"
+  />
+
+  <agent
+    id="voltar-continuas"
+    x="100"
+    y="500"
+    text="⬅️ CONTÍNUAS"
+    color="#ef4444"
+    font-size="14"
+    animation="hover-glow click-scale"
+    on_click="goToPage('continuas')"
+  />
+
+  <agent
+    id="proxima-clique"
+    x="700"
+    y="500"
+    text="CLIQUE ➡️"
+    color="#10b981"
+    font-size="14"
+    animation="hover-glow click-scale"
+    on_click="goToPage('clique')"
+  />
 </page>
