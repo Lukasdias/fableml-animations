@@ -6,7 +6,7 @@
   <property name="contador_cliques" default="0" />
 
   <!-- PÁGINA 1: ANIMAÇÕES DE ENTRADA -->
-  <page id="entrada" bg_color="#e0f2fe" bg_music="osts-stage.mp3">
+  <page id="entrada" color="#e0f2fe" bg_music="osts-stage.mp3">
     <agent
       id="titulo"
       x="400"
@@ -106,14 +106,14 @@
       color="#ffffff"
       width="300"
       height="50"
-      bg_color="#0369a1"
+      color="#0369a1"
       animation="hover-grow"
       on_click="goToPage('continuas')"
     />
   </page>
 
   <!-- PÁGINA 2: ANIMAÇÕES CONTÍNUAS -->
-  <page id="continuas" bg_color="#f0fdf4" bg_music="osts-retro-forest.mp3">
+  <page id="continuas" color="#f0fdf4" bg_music="osts-retro-forest.mp3">
     <agent
       id="titulo2"
       x="400"
@@ -250,7 +250,7 @@
       color="#ffffff"
       width="200"
       height="50"
-      bg_color="#16a34a"
+      color="#16a34a"
       animation="hover-bounce"
       on_click="goToPage('hover')"
     />
@@ -535,7 +535,7 @@
       color="#ffffff"
       width="200"
       height="60"
-      bg_color="#8b5cf6"
+      color="#8b5cf6"
       animation="slide-reveal"
     />
 
@@ -596,7 +596,7 @@
       color="#ffffff"
       width="200"
       height="50"
-      bg_color="#7c3aed"
+      color="#7c3aed"
       animation="hover-bounce"
       on_click="set(contador_cliques, 0); goToPage('entrada')"
     />
@@ -610,7 +610,7 @@
       color="#ffffff"
       width="150"
       height="50"
-      bg_color="#6b7280"
+      color="#6b7280"
       animation="hover-grow"
       on_click="goToPage('clique')"
     />
