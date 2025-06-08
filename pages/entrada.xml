@@ -1,3 +1,235 @@
-<page id="entrada" bg_color="black">
-  <agent id="titulo" x="center" y="center" text="Página entrada" color="white" font-size="24" />
+<page id="entrada" bg_color="#fefefe">
+  <agent
+    id="titulo-entrada"
+    x="center"
+    y="50"
+    text="📥 ANIMAÇÕES DE ENTRADA"
+    color="#1e293b"
+    font-size="24"
+  />
+
+  <agent
+    id="desc-entrada"
+    x="center"
+    y="90"
+    text="Animações que executam quando o elemento aparece na tela"
+    color="#475569"
+    font-size="14"
+  />
+
+  <!-- Linha 1: Fade animations -->
+  <agent
+    id="label-fade"
+    x="center"
+    y="140"
+    text="🌟 FADE ANIMATIONS"
+    color="#0f172a"
+    font-size="18"
+  />
+
+  <agent
+    id="demo-fade-in"
+    x="100"
+    y="180"
+    text="FADE IN"
+    color="#1e293b"
+    font-size="16"
+    animation="fade-in"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Fade In executado!')"
+  />
+
+  <agent
+    id="demo-fade-in-up"
+    x="250"
+    y="180"
+    text="FADE IN UP"
+    color="#1e293b"
+    font-size="16"
+    animation="fade-in-up"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Fade In Up executado!')"
+  />
+
+  <agent
+    id="demo-fade-in-down"
+    x="400"
+    y="180"
+    text="FADE IN DOWN"
+    color="#1e293b"
+    font-size="16"
+    animation="fade-in-down"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Fade In Down executado!')"
+  />
+
+  <agent
+    id="demo-fade-in-left"
+    x="550"
+    y="180"
+    text="FADE IN LEFT"
+    color="#1e293b"
+    font-size="16"
+    animation="fade-in-left"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Fade In Left executado!')"
+  />
+
+  <agent
+    id="demo-fade-in-right"
+    x="700"
+    y="180"
+    text="FADE IN RIGHT"
+    color="#1e293b"
+    font-size="16"
+    animation="fade-in-right"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Fade In Right executado!')"
+  />
+
+  <!-- Linha 2: Slide animations -->
+  <agent
+    id="label-slide"
+    x="center"
+    y="240"
+    text="🎢 SLIDE ANIMATIONS"
+    color="#0f172a"
+    font-size="18"
+  />
+
+  <agent
+    id="demo-slide-up"
+    x="150"
+    y="280"
+    text="SLIDE UP"
+    color="#1e293b"
+    font-size="16"
+    animation="slide-up"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Slide Up executado!')"
+  />
+
+  <agent
+    id="demo-slide-down"
+    x="300"
+    y="280"
+    text="SLIDE DOWN"
+    color="#1e293b"
+    font-size="16"
+    animation="slide-down"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Slide Down executado!')"
+  />
+
+  <agent
+    id="demo-slide-left"
+    x="450"
+    y="280"
+    text="SLIDE LEFT"
+    color="#1e293b"
+    font-size="16"
+    animation="slide-left"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Slide Left executado!')"
+  />
+
+  <agent
+    id="demo-slide-right"
+    x="600"
+    y="280"
+    text="SLIDE RIGHT"
+    color="#1e293b"
+    font-size="16"
+    animation="slide-right"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Slide Right executado!')"
+  />
+
+  <!-- Linha 3: Scale e outros -->
+  <agent
+    id="label-escala"
+    x="center"
+    y="340"
+    text="📐 ESCALA E OUTROS"
+    color="#0f172a"
+    font-size="18"
+  />
+
+  <agent
+    id="demo-zoom-in"
+    x="120"
+    y="380"
+    text="ZOOM IN"
+    color="#1e293b"
+    font-size="16"
+    animation="zoom-in"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Zoom In executado!')"
+  />
+
+  <agent
+    id="demo-scale-in"
+    x="250"
+    y="380"
+    text="SCALE IN"
+    color="#1e293b"
+    font-size="16"
+    animation="scale-in"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Scale In executado!')"
+  />
+
+  <agent
+    id="demo-bounce-in"
+    x="380"
+    y="380"
+    text="BOUNCE IN"
+    color="#1e293b"
+    font-size="16"
+    animation="bounce-in"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Bounce In executado!')"
+  />
+
+  <agent
+    id="demo-flip-in"
+    x="510"
+    y="380"
+    text="FLIP IN"
+    color="#1e293b"
+    font-size="16"
+    animation="flip-in"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Flip In executado!')"
+  />
+
+  <agent
+    id="demo-rotate-in"
+    x="640"
+    y="380"
+    text="ROTATE IN"
+    color="#1e293b"
+    font-size="16"
+    animation="rotate-in"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Rotate In executado!')"
+  />
+
+  <!-- Navegação e feedback -->
+  <agent
+    id="feedback-entrada"
+    x="center"
+    y="450"
+    text="$feedback"
+    color="#7c3aed"
+    font-size="14"
+  />
+
+  <agent
+    id="voltar-menu"
+    x="100"
+    y="500"
+    text="⬅️ VOLTAR"
+    color="#ef4444"
+    font-size="14"
+    animation="hover-glow click-scale"
+    on_click="goToPage('menu')"
+  />
+
+  <agent
+    id="proxima-continuas"
+    x="700"
+    y="500"
+    text="CONTÍNUAS ➡️"
+    color="#10b981"
+    font-size="14"
+    animation="hover-glow click-scale"
+    on_click="goToPage('continuas')"
+  />
 </page>
