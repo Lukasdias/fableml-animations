@@ -1,3 +1,114 @@
-<page id="menu" bg_color="black">
-  <agent id="titulo" x="center" y="center" text="Página menu" color="white" font-size="24" />
+<page id="menu" bg_color="#f8fafc">
+  <!-- Título principal centralizado -->
+  <agent
+    id="titulo-principal"
+    x="center"
+    y="20"
+    text="🎭 CATÁLOGO COMPLETO DE ANIMAÇÕES"
+    color="#1e293b"
+    font-size="28"
+  />
+
+  <agent
+    id="subtitulo"
+    x="center"
+    y="120"
+    text="Sistema de Animações CodeFab - Todas as 43+ Animações Disponíveis"
+    color="#475569"
+    font-size="16"
+  />
+
+  <!-- Menu de navegação -->
+  <agent
+    id="nav-entrada"
+    x="200"
+    y="200"
+    text="📥 ANIMAÇÕES DE ENTRADA"
+    color="#0f172a"
+    font-size="18"
+    animation="hover-glow click-bounce"
+    on_click="goToPage('entrada')"
+  />
+
+  <agent
+    id="nav-continuas"
+    x="600"
+    y="200"
+    text="🔄 ANIMAÇÕES CONTÍNUAS"
+    color="#0f172a"
+    font-size="18"
+    animation="hover-glow click-bounce"
+    on_click="goToPage('continuas')"
+  />
+
+  <agent
+    id="nav-hover"
+    x="200"
+    y="280"
+    text="🖱️ ANIMAÇÕES DE HOVER"
+    color="#0f172a"
+    font-size="18"
+    animation="hover-glow click-bounce"
+    on_click="goToPage('hover')"
+  />
+
+  <agent
+    id="nav-clique"
+    x="600"
+    y="280"
+    text="👆 ANIMAÇÕES DE CLIQUE"
+    color="#0f172a"
+    font-size="18"
+    animation="hover-glow click-bounce"
+    on_click="goToPage('clique')"
+  />
+
+  <agent
+    id="nav-especiais"
+    x="400"
+    y="360"
+    text="✨ ANIMAÇÕES ESPECIAIS"
+    color="#0f172a"
+    font-size="18"
+    animation="hover-glow click-bounce"
+    on_click="goToPage('especiais')"
+  />
+
+  <!-- Informações -->
+  <agent
+    id="info"
+    x="center"
+    y="450"
+    text="Contador total de interações: $contador_cliques"
+    color="#64748b"
+    font-size="14"
+  />
+
+  <agent
+    id="feedback-menu"
+    x="center"
+    y="480"
+    text="$feedback"
+    color="#7c3aed"
+    font-size="14"
+  />
+
+  <!-- Instruções -->
+  <agent
+    id="instrucoes"
+    x="center"
+    y="400"
+    text="💡 Clique nas categorias acima para explorar as animações"
+    color="#334155"
+    font-size="16"
+  />
+
+  <agent
+    id="nota"
+    x="center"
+    y="550"
+    text="Cada categoria contém exemplos interativos e comparações visuais"
+    color="#64748b"
+    font-size="12"
+  />
 </page>
