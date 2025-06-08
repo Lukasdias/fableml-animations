@@ -1,3 +1,180 @@
-<page id="clique" bg_color="black">
-  <agent id="titulo" x="center" y="center" text="Página clique" color="white" font-size="24" />
+<page id="clique" bg_color="#f8fafc">
+  <agent
+    id="titulo-clique"
+    x="center"
+    y="50"
+    text="👆 ANIMAÇÕES DE CLIQUE"
+    color="#1e293b"
+    font-size="24"
+  />
+
+  <agent
+    id="desc-clique"
+    x="center"
+    y="90"
+    text="Animações que executam completamente ao clicar (não precisam manter pressionado)"
+    color="#475569"
+    font-size="14"
+  />
+
+  <!-- Linha 1: Básicas -->
+  <agent
+    id="label-click-basicas"
+    x="center"
+    y="140"
+    text="🎯 CLIQUES BÁSICOS"
+    color="#0f172a"
+    font-size="18"
+  />
+
+  <agent
+    id="demo-click-scale"
+    x="100"
+    y="180"
+    text="CLICK SCALE"
+    color="#1e293b"
+    font-size="16"
+    animation="click-scale"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Click Scale executado!')"
+  />
+
+  <agent
+    id="demo-click-shrink"
+    x="250"
+    y="180"
+    text="CLICK SHRINK"
+    color="#1e293b"
+    font-size="16"
+    animation="click-shrink"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Click Shrink executado!')"
+  />
+
+  <agent
+    id="demo-click-pulse"
+    x="400"
+    y="180"
+    text="CLICK PULSE"
+    color="#1e293b"
+    font-size="16"
+    animation="click-pulse"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Click Pulse executado!')"
+  />
+
+  <agent
+    id="demo-click-bounce"
+    x="550"
+    y="180"
+    text="CLICK BOUNCE"
+    color="#1e293b"
+    font-size="16"
+    animation="click-bounce"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Click Bounce executado!')"
+  />
+
+  <agent
+    id="demo-click-squish"
+    x="700"
+    y="180"
+    text="CLICK SQUISH"
+    color="#1e293b"
+    font-size="16"
+    animation="click-squish"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Click Squish executado!')"
+  />
+
+  <!-- Linha 2: Avançadas -->
+  <agent
+    id="label-click-avancadas"
+    x="center"
+    y="240"
+    text="⚡ CLIQUES AVANÇADOS"
+    color="#0f172a"
+    font-size="18"
+  />
+
+  <agent
+    id="demo-click-rotate"
+    x="150"
+    y="280"
+    text="CLICK ROTATE"
+    color="#1e293b"
+    font-size="16"
+    animation="click-rotate"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Click Rotate (360°) executado!')"
+  />
+
+  <agent
+    id="demo-click-shake"
+    x="350"
+    y="280"
+    text="CLICK SHAKE"
+    color="#1e293b"
+    font-size="16"
+    animation="click-shake"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Click Shake executado!')"
+  />
+
+  <agent
+    id="demo-click-jiggle"
+    x="550"
+    y="280"
+    text="CLICK JIGGLE"
+    color="#1e293b"
+    font-size="16"
+    animation="click-jiggle"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Click Jiggle executado!')"
+  />
+
+  <!-- Teste de velocidade -->
+  <agent
+    id="label-velocidade"
+    x="center"
+    y="340"
+    text="🏃‍♂️ TESTE DE VELOCIDADE"
+    color="#0f172a"
+    font-size="18"
+  />
+
+  <agent
+    id="demo-click-rapido"
+    x="center"
+    y="380"
+    text="CLIQUE RÁPIDO MÚLTIPLAS VEZES!"
+    color="#1e293b"
+    font-size="18"
+    animation="click-jiggle"
+    on_click="set(contador_cliques, $contador_cliques + 1); set(feedback, 'Clique rápido #$contador_cliques!')"
+  />
+
+  <!-- Navegação -->
+  <agent
+    id="feedback-clique"
+    x="center"
+    y="450"
+    text="$feedback"
+    color="#7c3aed"
+    font-size="14"
+  />
+
+  <agent
+    id="voltar-hover"
+    x="100"
+    y="500"
+    text="⬅️ HOVER"
+    color="#ef4444"
+    font-size="14"
+    animation="hover-glow click-scale"
+    on_click="goToPage('hover')"
+  />
+
+  <agent
+    id="proxima-especiais"
+    x="700"
+    y="500"
+    text="ESPECIAIS ➡️"
+    color="#10b981"
+    font-size="14"
+    animation="hover-glow click-scale"
+    on_click="goToPage('especiais')"
+  />
 </page>
