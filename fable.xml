@@ -1,230 +1,618 @@
 <fable>
-  <!-- Configurações globais -->
-  <config font-family="Montserrat" />
+  <config font-family="Poppins" />
 
-  <!-- Variáveis do sistema de escolhas -->
-  <property name="escolha_feita" default="false" />
-  <property name="caminho" default="" />
-  <property name="vida" default="500" />
-  <property name="coragem" default="50" />
+  <property name="pagina_atual" default="'entrada'" />
+  <property name="animacao_testada" default="''" />
+  <property name="contador_cliques" default="0" />
 
-  <property name="capitulo" default="1" />
-
-  <testing />
-
-  <page id="escolha" bg_color="#2c1810" bg_music="osts-fear.mp3">
-    <!-- Interface do jogo - Topo centralizado -->
+  <!-- PÁGINA 1: ANIMAÇÕES DE ENTRADA -->
+  <page id="entrada" bg_color="#e0f2fe" bg_music="osts-stage.mp3">
     <agent
       id="titulo"
-      x="center"
-      y="25"
-      text="🌙 A Floresta Sombria - Capítulo $capitulo"
-      color="#ffffff"
-      font-size="20"
-      on_click="goToPage('testing')"
+      x="400"
+      y="80"
+      text="🎭 Teatro das Animações Mágicas"
+      font-size="32"
+      color="#0369a1"
+      animation="fade-in"
     />
 
-    <!-- Status do jogador - Abaixo do título -->
     <agent
-      id="status"
-      x="center"
-      y="55"
-      text="❤️ Vida: $vida | 🛡️ Coragem: $coragem"
-      color="#ffff00"
-      font-size="14"
+      id="subtitulo"
+      x="400"
+      y="140"
+      text="Bem-vindos ao espetáculo das animações!"
+      font-size="18"
+      color="#0284c7"
+      animation="slide-down"
     />
 
-    <!-- Narrativa inicial - Área central superior -->
-    <fab-if when="not $escolha_feita">
-      <agent
-        id="cenario"
-        x="center"
-        y="120"
-        width="750"
-        height="80"
-        text="Você caminha pela floresta sombria quando encontra uma bifurcação misteriosa. À esquerda, um caminho illuminado pela lua. À direita, um túnel escuro e úmido. Atrás de você, ouve-se uivos distantes..."
-        color="#cccccc"
-        font-size="16"
-      />
+    <!-- Demonstração das animações de entrada -->
+    <agent
+      id="personagem1"
+      x="150"
+      y="250"
+      image="forest-hero-idle.png"
+      width="80"
+      height="80"
+      animation="slide-up"
+    />
 
-      <!-- Opções de escolha - Distribuídas horizontalmente -->
-      <agent
-        id="esquerda"
-        x="0"
-        y="240"
-        height="60"
-        width="200"
-        text="🌙 Seguir à esquerda
-(Caminho da Lua)"
-        color="#87ceeb"
-        font-size="14"
-        animation="hover-grow"
-        on_click="set(escolha_feita, true); set(caminho, 'lua')"
-      />
+    <agent
+      id="personagem2"
+      x="350"
+      y="250"
+      image="desert-jones.png"
+      width="80"
+      height="80"
+      animation="slide-left"
+    />
 
-      <agent
-        id="direita"
-        x="300"
-        y="240"
-        height="60"
-        width="200"
-        text="🕳️ Entrar no túnel
-(Caminho Sombrio)"
-        color="#8b4513"
-        font-size="14"
-        animation="hover-grow"
-        on_click="set(escolha_feita, true); set(caminho, 'sombra')"
-      />
+    <agent
+      id="personagem3"
+      x="550"
+      y="250"
+      image="snow-snowman.png"
+      width="80"
+      height="80"
+      animation="slide-right"
+    />
 
-      <agent
-        id="voltar"
-        x="550"
-        y="240"
-        height="60"
-        width="200"
-        text="🏃 Correr de volta
-(Fugir dos uivos)"
-        color="#ff6b6b"
-        font-size="14"
-        animation="hover-grow"
-        on_click="set(escolha_feita, true); set(caminho, 'fuga')"
-      />
-    </fab-if>
+    <agent
+      id="personagem4"
+      x="750"
+      y="250"
+      image="tech-acid-1.png"
+      width="80"
+      height="80"
+      animation="zoom-in"
+    />
 
-    <!-- Consequências: Caminho da Lua -->
-    <fab-if when="$escolha_feita and $caminho = 'lua'">
-      <agent
-        id="resultado-lua"
-        x="center"
-        y="140"
-        width="750"
-        height="100"
-        text="🌟 Você seguiu o caminho iluminado e encontrou um cristal mágico! Sua coragem aumenta e você se sente renovado. Um druida aparece e o guia em segurança."
-        color="#e6e6fa"
-        font-size="16"
-        animation="fade-in"
-      />
+    <agent
+      id="mago"
+      x="400"
+      y="350"
+      image="forest-mushroom.png"
+      width="100"
+      height="100"
+      animation="bounce-in"
+    />
 
-      <agent
-        id="bonus-lua"
-        x="center"
-        y="270"
-        text="✨ +20 Coragem | +10 Vida"
-        color="#00ff00"
-        font-size="18"
-        animation="bounce-in"
-        on_click="set(coragem, $coragem + 20); set(vida, $vida + 10)"
-      />
-    </fab-if>
+    <agent
+      id="cristal"
+      x="400"
+      y="480"
+      image="tech-saw.png"
+      width="60"
+      height="60"
+      animation="flip-in"
+    />
 
-    <!-- Consequências: Caminho das Sombras -->
-    <fab-if when="$escolha_feita and $caminho = 'sombra'">
-      <agent
-        id="resultado-sombra"
-        x="center"
-        y="140"
-        width="750"
-        height="100"
-        text="💀 O túnel estava cheio de armadilhas! Você tropeça e se machuca, mas encontra um tesouro escondido. Sua vida diminui, mas você ganha experiência valiosa."
-        color="#cd853f"
-        font-size="16"
-        animation="fade-in"
-      />
+    <agent
+      id="instrucao1"
+      x="400"
+      y="580"
+      text="👆 Observe como cada personagem aparece com animação diferente!"
+      font-size="16"
+      color="#075985"
+    />
 
-      <agent
-        id="bonus-sombra"
-        x="center"
-        y="270"
-        text="⚔️ +10 Coragem | -20 Vida"
-        color="#ffa500"
-        font-size="18"
-        animation="bounce-in"
-        on_click="set(coragem, $coragem + 10); set(vida, $vida - 20)"
-      />
-    </fab-if>
+    <agent
+      id="btn_continuas"
+      x="400"
+      y="650"
+      text="🎪 Ver Animações Contínuas"
+      font-size="18"
+      color="#ffffff"
+      width="300"
+      height="50"
+      bg_color="#0369a1"
+      animation="hover-grow"
+      on_click="goToPage('continuas')"
+    />
+  </page>
 
-    <!-- Consequências: Fuga -->
-    <fab-if when="$escolha_feita and $caminho = 'fuga'">
-      <agent
-        id="resultado-fuga"
-        x="center"
-        y="140"
-        width="750"
-        height="100"
-        text="🏃 Você correu de volta mas tropeçou! Os uivos se aproximam... Sua coragem diminui, mas você consegue escapar por pouco e encontra uma cabana segura."
-        color="#ffa07a"
-        font-size="16"
-        animation="fade-in"
-      />
+  <!-- PÁGINA 2: ANIMAÇÕES CONTÍNUAS -->
+  <page id="continuas" bg_color="#f0fdf4" bg_music="osts-retro-forest.mp3">
+    <agent
+      id="titulo2"
+      x="400"
+      y="60"
+      text="🌟 Animações Contínuas Encantadas"
+      font-size="28"
+      color="#166534"
+      animation="fade-in"
+    />
 
-      <agent
-        id="bonus-fuga"
-        x="center"
-        y="270"
-        text="🏠 Lugar Seguro | -10 Coragem"
-        color="#ff4500"
-        font-size="18"
-        animation="bounce-in"
-        on_click="set(coragem, $coragem - 10)"
-      />
-    </fab-if>
+    <!-- Pulse - Coração mágico -->
+    <agent
+      id="coracao"
+      x="150"
+      y="180"
+      text="💖"
+      font-size="48"
+      animation="pulse"
+    />
+    <agent
+      id="label_pulse"
+      x="150"
+      y="230"
+      text="Pulse"
+      font-size="14"
+      color="#166534"
+    />
 
-    <!-- Botões de ação após escolha - Área inferior -->
-    <fab-if when="$escolha_feita and $vida > 0">
-      <agent
-        id="proximo-capitulo"
-        x="280"
-        y="420"
-        width="180"
-        height="40"
-        text="📖 Próximo Capítulo"
-        color="#ffffff"
-        font-size="14"
-        animation="hover-grow"
-        on_click="set(capitulo, $capitulo + 1); set(escolha_feita, false); set(caminho, '')"
-      />
+    <!-- Glow - Estrela brilhante (corrigido para box-shadow) -->
+    <agent
+      id="estrela"
+      x="300"
+      y="180"
+      text="⭐"
+      font-size="48"
+      animation="glow"
+    />
+    <agent
+      id="label_glow"
+      x="300"
+      y="230"
+      text="Glow (Box-Shadow)"
+      font-size="14"
+      color="#166534"
+    />
 
-      <agent
-        id="reiniciar"
-        x="520"
-        y="420"
-        width="180"
-        height="40"
-        text="🔄 Recomeçar História"
-        color="#ffffff"
-        font-size="14"
-        animation="hover-grow"
-        on_click="set(escolha_feita, false); set(caminho, ''); set(vida, 100); set(coragem, 50); set(capitulo, 1)"
-      />
-    </fab-if>
+    <!-- Float - Fantasma flutuando -->
+    <agent
+      id="fantasma"
+      x="450"
+      y="180"
+      text="👻"
+      font-size="48"
+      animation="float"
+    />
+    <agent
+      id="label_float"
+      x="450"
+      y="230"
+      text="Float"
+      font-size="14"
+      color="#166534"
+    />
 
-    <!-- Sistema de Game Over - Centralizado na tela -->
-    <fab-if when="$vida <= 0">
-      <agent
-        id="game-over"
-        x="center"
-        y="280"
-        width="600"
-        height="80"
-        text="💀 GAME OVER
-Sua jornada terminou aqui..."
-        color="#ff0000"
-        font-size="24"
-        animation="pulse"
-      />
+    <!-- Spin - Engrenagem girando -->
+    <agent
+      id="engrenagem"
+      x="600"
+      y="180"
+      text="⚙️"
+      font-size="48"
+      animation="spin"
+    />
+    <agent
+      id="label_spin"
+      x="600"
+      y="230"
+      text="Spin"
+      font-size="14"
+      color="#166534"
+    />
 
-      <agent
-        id="restart"
-        x="center"
-        y="380"
-        width="250"
-        height="50"
-        text="🔄 Começar Nova Jornada"
-        color="#ffffff"
-        font-size="16"
-        animation="hover-grow"
-        on_click="set(vida, 100); set(coragem, 50); set(capitulo, 1); set(escolha_feita, false); set(caminho, '')"
-      />
-    </fab-if>
+    <!-- Wiggle - Folha balançando -->
+    <agent
+      id="folha"
+      x="750"
+      y="180"
+      text="🍃"
+      font-size="48"
+      animation="wiggle"
+    />
+    <agent
+      id="label_wiggle"
+      x="750"
+      y="230"
+      text="Wiggle"
+      font-size="14"
+      color="#166534"
+    />
+
+    <!-- Heartbeat - Coração batendo -->
+    <agent
+      id="coracao2"
+      x="400"
+      y="320"
+      text="❤️"
+      font-size="60"
+      animation="heartbeat"
+    />
+    <agent
+      id="label_heartbeat"
+      x="400"
+      y="380"
+      text="Heartbeat"
+      font-size="14"
+      color="#166534"
+    />
+
+    <agent
+      id="explicacao"
+      x="400"
+      y="450"
+      text="🔄 Estas animações rodam infinitamente com transições suaves!"
+      font-size="16"
+      color="#365314"
+    />
+
+    <agent
+      id="btn_hover"
+      x="200"
+      y="550"
+      text="🖱️ Testar Hover"
+      font-size="18"
+      color="#ffffff"
+      width="200"
+      height="50"
+      bg_color="#16a34a"
+      animation="hover-bounce"
+      on_click="goToPage('hover')"
+    />
+
+    <agent
+      id="btn_voltar1"
+      x="600"
+      y="550"
+      text="⬅️ Voltar"
+      font-size="18"
+      color="#ffffff"
+      width="150"
+      height="50"
+      bg_color="#6b7280"
+      animation="hover-grow"
+      on_click="goToPage('entrada')"
+    />
+  </page>
+
+  <!-- PÁGINA 3: ANIMAÇÕES DE HOVER -->
+  <page id="hover" bg_color="#fef3c7" bg_music="osts-stage.mp3">
+    <agent
+      id="titulo3"
+      x="400"
+      y="60"
+      text="🖱️ Animações de Hover Interativas"
+      font-size="28"
+      color="#92400e"
+      animation="fade-in"
+    />
+
+    <agent
+      id="instrucao3"
+      x="400"
+      y="120"
+      text="Passe o mouse sobre os elementos abaixo:"
+      font-size="18"
+      color="#a16207"
+    />
+
+    <!-- Hover Grow - Botão que cresce -->
+    <agent
+      id="btn_grow"
+      x="200"
+      y="200"
+      text="🟦 Hover Grow"
+      font-size="16"
+      color="#ffffff"
+      width="180"
+      height="60"
+      bg_color="#3b82f6"
+      animation="hover-grow"
+    />
+
+    <!-- Hover Bounce - Elemento que salta -->
+    <agent
+      id="elemento_bounce"
+      x="600"
+      y="200"
+      text="🦘 Hover Bounce"
+      font-size="16"
+      color="#ffffff"
+      width="180"
+      height="60"
+      bg_color="#10b981"
+      animation="hover-bounce"
+    />
+
+    <!-- Hover Tilt - Elemento que inclina -->
+    <agent
+      id="carta"
+      x="200"
+      y="320"
+      image="desert-cactus.png"
+      width="120"
+      height="120"
+      animation="hover-tilt"
+    />
+    <agent
+      id="label_tilt"
+      x="200"
+      y="450"
+      text="Hover Tilt"
+      font-size="14"
+      color="#92400e"
+    />
+
+    <!-- Hover Glow - Elemento que brilha (corrigido para box-shadow) -->
+    <agent
+      id="gema"
+      x="600"
+      y="320"
+      text="💎"
+      font-size="80"
+      animation="hover-glow"
+    />
+    <agent
+      id="label_glow_hover"
+      x="600"
+      y="450"
+      text="Hover Glow (Box-Shadow)"
+      font-size="14"
+      color="#92400e"
+    />
+
+    <agent
+      id="dica_hover"
+      x="400"
+      y="520"
+      text="✨ Todas as animações de hover usam propriedades otimizadas!"
+      font-size="16"
+      color="#a16207"
+    />
+
+    <agent
+      id="btn_clique"
+      x="200"
+      y="580"
+      text="👆 Testar Clique"
+      font-size="18"
+      color="#ffffff"
+      width="200"
+      height="50"
+      bg_color="#f59e0b"
+      animation="hover-grow"
+      on_click="goToPage('clique')"
+    />
+
+    <agent
+      id="btn_voltar2"
+      x="600"
+      y="580"
+      text="⬅️ Voltar"
+      font-size="18"
+      color="#ffffff"
+      width="150"
+      height="50"
+      bg_color="#6b7280"
+      animation="hover-grow"
+      on_click="goToPage('continuas')"
+    />
+  </page>
+
+  <!-- PÁGINA 4: ANIMAÇÕES DE CLIQUE -->
+  <page id="clique" bg_color="#fce7f3" bg_music="osts-fear.mp3">
+    <agent
+      id="titulo4"
+      x="400"
+      y="60"
+      text="👆 Animações de Clique Responsivas"
+      font-size="28"
+      color="#be185d"
+      animation="fade-in"
+    />
+
+    <agent
+      id="contador"
+      x="400"
+      y="120"
+      text="Cliques totais: $contador_cliques"
+      font-size="18"
+      color="#c2185b"
+    />
+
+    <!-- Click Scale - Botão que diminui -->
+    <agent
+      id="btn_scale"
+      x="200"
+      y="200"
+      text="🔻 Click Scale"
+      font-size="16"
+      color="#ffffff"
+      width="180"
+      height="60"
+      bg_color="#e11d48"
+      animation="click-scale"
+      on_click="set(contador_cliques, $contador_cliques + 1)"
+    />
+
+    <!-- Click Bounce - Botão que quica -->
+    <agent
+      id="btn_bounce_click"
+      x="600"
+      y="200"
+      text="🎾 Click Bounce"
+      font-size="16"
+      color="#ffffff"
+      width="180"
+      height="60"
+      bg_color="#ec4899"
+      animation="click-bounce"
+      on_click="set(contador_cliques, $contador_cliques + 1)"
+    />
+
+    <!-- Click Shake - Elemento que balança -->
+    <agent
+      id="sino"
+      x="400"
+      y="320"
+      text="🔔"
+      font-size="80"
+      animation="click-shake"
+      on_click="set(contador_cliques, $contador_cliques + 1)"
+    />
+    <agent
+      id="label_shake"
+      x="400"
+      y="400"
+      text="Click Shake"
+      font-size="14"
+      color="#be185d"
+    />
+
+    <agent
+      id="explicacao_clique"
+      x="400"
+      y="480"
+      text="👆 Clique nos elementos para ver as animações de feedback!"
+      font-size="16"
+      color="#c2185b"
+    />
+
+    <agent
+      id="btn_especiais"
+      x="200"
+      y="580"
+      text="✨ Ver Especiais"
+      font-size="18"
+      color="#ffffff"
+      width="200"
+      height="50"
+      bg_color="#be185d"
+      animation="hover-grow"
+      on_click="goToPage('especiais')"
+    />
+
+    <agent
+      id="btn_voltar3"
+      x="600"
+      y="580"
+      text="⬅️ Voltar"
+      font-size="18"
+      color="#ffffff"
+      width="150"
+      height="50"
+      bg_color="#6b7280"
+      animation="hover-grow"
+      on_click="goToPage('hover')"
+    />
+  </page>
+
+  <!-- PÁGINA 5: ANIMAÇÕES ESPECIAIS -->
+  <page id="especiais" bg_color="#f3e8ff" bg_music="osts-retro-forest.mp3">
+    <agent
+      id="titulo5"
+      x="400"
+      y="60"
+      text="✨ Animações Especiais Avançadas"
+      font-size="28"
+      color="#7c3aed"
+      animation="fade-in"
+    />
+
+    <!-- Typewriter - Texto digitando (corrigido para opacity) -->
+    <agent
+      id="texto_typewriter"
+      x="400"
+      y="160"
+      text="📝 Este texto aparece como máquina de escrever..."
+      font-size="18"
+      color="#6d28d9"
+      animation="typewriter"
+    />
+
+    <!-- Slide Reveal - Elemento revelando (corrigido para transform) -->
+    <agent
+      id="elemento_reveal"
+      x="200"
+      y="240"
+      text="🎭 Slide Reveal"
+      font-size="16"
+      color="#ffffff"
+      width="200"
+      height="60"
+      bg_color="#8b5cf6"
+      animation="slide-reveal"
+    />
+
+    <!-- Morphing - Forma que muda -->
+    <agent
+      id="forma_morphing"
+      x="600"
+      y="240"
+      text="🟪"
+      font-size="60"
+      animation="morphing"
+    />
+    <agent
+      id="label_morphing"
+      x="600"
+      y="320"
+      text="Morphing"
+      font-size="14"
+      color="#7c3aed"
+    />
+
+    <!-- Glitch - Efeito de falha (corrigido sem filter) -->
+    <agent
+      id="elemento_glitch"
+      x="400"
+      y="380"
+      text="👾 GLITCH EFFECT"
+      font-size="20"
+      color="#dc2626"
+      animation="glitch"
+    />
+
+    <agent
+      id="explicacao_especiais"
+      x="400"
+      y="480"
+      text="🔬 Animações especiais usam técnicas avançadas otimizadas!"
+      font-size="16"
+      color="#7c3aed"
+    />
+
+    <agent
+      id="resultado_titulo"
+      x="400"
+      y="530"
+      text="🎉 TODAS AS ANIMAÇÕES TESTADAS COM SUCESSO!"
+      font-size="20"
+      color="#059669"
+      animation="bounce-in"
+    />
+
+    <agent
+      id="btn_reiniciar"
+      x="200"
+      y="600"
+      text="🔄 Reiniciar Tour"
+      font-size="18"
+      color="#ffffff"
+      width="200"
+      height="50"
+      bg_color="#7c3aed"
+      animation="hover-bounce"
+      on_click="set(contador_cliques, 0); goToPage('entrada')"
+    />
+
+    <agent
+      id="btn_voltar4"
+      x="600"
+      y="600"
+      text="⬅️ Voltar"
+      font-size="18"
+      color="#ffffff"
+      width="150"
+      height="50"
+      bg_color="#6b7280"
+      animation="hover-grow"
+      on_click="goToPage('clique')"
+    />
   </page>
 </fable>
