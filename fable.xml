@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <fable>
   <config font-family="Inter" />
   <property name="pagina_atual" default="menu" />
