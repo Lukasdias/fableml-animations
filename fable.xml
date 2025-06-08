@@ -13,9 +13,7 @@
   <!-- === PÁGINA: ANIMAÇÕES DE HOVER === -->
   <hover />
   <!-- === PÁGINA: ANIMAÇÕES DE CLIQUE === -->
-
   <clique />
   <!-- === PÁGINA: ANIMAÇÕES ESPECIAIS === -->
-
   <especiais />
 </fable>
