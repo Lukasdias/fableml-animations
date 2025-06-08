@@ -5,7 +5,6 @@
   <property name="animacao_testada" default="''" />
   <property name="contador_cliques" default="0" />
 
-  <!-- PÁGINA 1: ANIMAÇÕES DE ENTRADA -->
   <page id="entrada" color="#e0f2fe" bg_music="osts-stage.mp3">
     <agent
       id="titulo"
