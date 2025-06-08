@@ -2,7 +2,7 @@
   <agent
     image="forest-hero-idle.png"
     id="hero"
-    width="100"
+    width="400"
     x="center"
     y="center"
     animation="bounce-in"
