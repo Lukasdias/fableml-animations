@@ -1,5 +1,15 @@
 <page id="menu" bg_color="#f8fafc">
-  <agent id="test-sprite" sprite="idle.png" x="100" y="20" />
+  <agent
+    id="test-sprite"
+    sprite="idle.png"
+    x="100"
+    y="20"
+    sprite_frames="6"
+    sprite_fps="16"
+    sprite_frame_width="64"
+    sprite_frame_height="64"
+    sprite_orientation="horizontal"
+  />
 
   <!-- Título principal centralizado -->
   <agent
