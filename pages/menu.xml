@@ -4,10 +4,10 @@
     sprite="idle.png"
     x="100"
     y="0"
-    sprite_frames="6"
-    sprite_fps="4"
-    sprite_frame_width="32"
-    sprite_frame_height="32"
+    sprite_frames="2"
+    sprite_fps="60"
+    sprite_frame_width="16"
+    sprite_frame_height="16"
   />
 
   <!-- Título principal centralizado -->
