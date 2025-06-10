@@ -6,10 +6,6 @@
     y="400"
     sprite_frame_width="16"
     sprite_frame_height="16"
-    width="16"
-    height="16"
-    sprite_frames="6"
-    sprite_fps="6"
   />
 
   <!-- Título principal centralizado -->
