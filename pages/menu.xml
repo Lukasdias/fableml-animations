@@ -5,8 +5,8 @@
     x="100"
     y="20"
     width="200"
-    sprite_frames="8"
-    sprite_fps="30"
+    sprite_frames="6"
+    sprite_fps="60"
   />
 
   <!-- Título principal centralizado -->
