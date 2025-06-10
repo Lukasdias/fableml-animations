@@ -4,6 +4,9 @@
     sprite="idle.png"
     x="100"
     y="400"
+    sprite_fps="60"
+    sprite_start_frame="0"
+    sprite_end_frame="5"
     sprite_frame_width="16"
     sprite_frame_height="16"
   />
