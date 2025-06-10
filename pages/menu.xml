@@ -2,8 +2,9 @@
   <agent
     id="test-sprite"
     sprite="idle.png"
-    x="0"
-    y="0"
+    x="100"
+    y="20"
+    width="200"
     sprite_frames="8"
     sprite_fps="30"
   />
