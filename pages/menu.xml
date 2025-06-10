@@ -1,14 +1,11 @@
 <page id="menu" bg_color="#f8fafc">
   <agent
-    id="test-sprite"
-    sprite="idle.png"
+    id="hero-idle"
     x="100"
-    y="20"
+    y="400"
+    sprite="idle.png"
     sprite_frames="6"
-    sprite_fps="16"
-    sprite_frame_width="64"
-    sprite_frame_height="64"
-    sprite_orientation="horizontal"
+    sprite_fps="6"
   />
 
   <!-- Título principal centralizado -->
