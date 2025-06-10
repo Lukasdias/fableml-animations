@@ -8,7 +8,6 @@
     sprite_fps="4"
     sprite_frame_width="32"
     sprite_frame_height="32"
-    width="128"
   />
 
   <!-- Título principal centralizado -->
