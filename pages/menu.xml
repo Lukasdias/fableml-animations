@@ -1,9 +1,13 @@
 <page id="menu" bg_color="#f8fafc">
   <agent
     id="hero-idle"
+    sprite="idle.png"
     x="100"
     y="400"
-    sprite="idle.png"
+    sprite_frame_width="16"
+    sprite_frame_height="16"
+    width="16"
+    height="16"
     sprite_frames="6"
     sprite_fps="6"
   />
