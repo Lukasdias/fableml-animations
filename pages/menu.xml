@@ -1,4 +1,6 @@
 <page id="menu" bg_color="#f8fafc">
+  <agent id="test-sprite" sprite="idle.png" x="0" y="0" sprite_fps="8" />
+
   <!-- Título principal centralizado -->
   <agent
     id="titulo-principal"
