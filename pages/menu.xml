@@ -6,7 +6,8 @@
     y="0"
     sprite_frames="6"
     sprite_fps="4"
-    width="16"
+    width="100"
+    height="100"
     sprite_frame_width="16"
     sprite_frame_height="16"
   />
