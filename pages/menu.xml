@@ -4,8 +4,8 @@
     sprite="idle.png"
     x="100"
     y="20"
-    width="200"
-    height="200"
+    width="100"
+    height="100"
     sprite_frames="6"
     sprite_fps="60"
   />
