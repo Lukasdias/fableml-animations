@@ -7,7 +7,7 @@
     width="100"
     height="100"
     sprite_rows="1"
-    animation_frames="8"
+    animation_frames="6"
   />
 
   <!-- Título principal centralizado -->
