@@ -9,7 +9,7 @@
     font-size="16"
     width="120"
     height="40"
-    on_click="playSound('tapping.wav')"
+    on_click=""
   />
 
   <agent
