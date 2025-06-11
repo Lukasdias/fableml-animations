@@ -9,7 +9,7 @@
     font-size="16"
     width="120"
     height="40"
-    on_click="set(contador, $contador + 1); playSound('')"
+    on_click="set(contador, $contador + 1); playSound('tapping')"
   />
 
   <agent
