@@ -1,4 +1,4 @@
-<page id="button-showcase" bg_color="#f0f9ff">
+<page id="bg" bg_color="#f0f9ff">
   <!-- Botão básico com bg_color -->
   <agent
     id="btn-basic"
