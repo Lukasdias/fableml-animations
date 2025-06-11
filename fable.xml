@@ -4,6 +4,8 @@
   <property name="contador_cliques" default="0" />
   <property name="feedback" default="Explore todas as animações disponíveis!" />
 
+  <property name="contador" default="0" />
+  <property name="cor_dinamica" default="blue" />
   <!-- === PÁGINA PRINCIPAL - MENU === -->
   <menu />
   <!-- === PÁGINA: ANIMAÇÕES DE ENTRADA === -->
