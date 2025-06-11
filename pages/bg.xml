@@ -1,5 +1,4 @@
 <page id="bg" bg_color="#f0f9ff">
-  <!-- Botão básico com bg_color -->
   <agent
     id="btn-basic"
     x="50"
@@ -13,7 +12,6 @@
     on_click="set(contador, $contador + 1)"
   />
 
-  <!-- Botão com borda sólida e raio -->
   <agent
     id="btn-border"
     x="200"
@@ -30,7 +28,6 @@
     on_click="set(contador, $contador + 2)"
   />
 
-  <!-- Botão com hover effect -->
   <agent
     id="btn-hover"
     x="350"
@@ -46,7 +43,6 @@
     on_click="set(contador, $contador + 3)"
   />
 
-  <!-- Botão com borda tracejada -->
   <agent
     id="btn-dashed"
     x="500"
@@ -62,7 +58,6 @@
     on_click="set(contador, $contador + 5)"
   />
 
-  <!-- Botão com interpolação de variável -->
   <agent
     id="btn-dynamic"
     x="50"
