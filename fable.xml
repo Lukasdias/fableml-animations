@@ -5,6 +5,7 @@
   <property name="feedback" default="Explore todas as animações disponíveis!" />
   <property name="contador" default="0" />
   <property name="cor_dinamica" default="blue" />
+
   <bg />
   <!-- === PÁGINA PRINCIPAL - MENU === -->
   <menu />
