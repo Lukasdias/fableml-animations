@@ -164,7 +164,7 @@
     color="#10b981"
     font-size="14"
     animation="hover-glow click-scale"
-    on_click="goToPage('menu')"
+    on_click="reset()"
   />
 
   <!-- Estatísticas finais -->
